@@ -7,8 +7,10 @@ import com.Pathway.Users.MarketUser;
 import com.Pathway.Users.NOCUser;
 import com.Pathway.Users.RPMUser;
 import com.Pathway.Users.RRMUSER;
+import com.Pathway.Webpages.Homepage;
 import com.Pathway.Webpages.Loginpage;
 import com.Pathway.Webpages.LogoutPage;
+import com.Pathway.Webpages.RequestViewPage;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -18,6 +20,8 @@ public class Cancleationflow extends Basepage
 {
 	MarketUser markertuser = new MarketUser();
 	RPMUser rpmuser = new RPMUser();
+	RequestViewPage view = new RequestViewPage();
+	Homepage home = new Homepage();
 	RRMUSER rrmuser = new RRMUSER();
 	NOCUser nocuser = new NOCUser();
 	LegalUser legaluser = new LegalUser();
@@ -35,7 +39,8 @@ public class Cancleationflow extends Basepage
 	{
 	    markertuser.loginwithMarketUser();
 	    login.ClickYesbutton();
-	    
+	   // home.cancelationbutton();
+	   // view.checkrejetedlist();
 	    
 	}
 
@@ -65,7 +70,7 @@ public class Cancleationflow extends Basepage
 
 	@Then("^Logout RPM user after check the status of cancelation request$")
 	public void logout_RPM_user_after_check_the_status_of_cancelation_request()  {
-		logout.logoutUser();
+		//logout.logoutUser();
 	}
 
 	@When("^RRM user login with valid credtinals for Cancelation process$")

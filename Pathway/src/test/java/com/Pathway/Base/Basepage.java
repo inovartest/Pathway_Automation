@@ -3,6 +3,7 @@ package com.Pathway.Base;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.math3.ode.sampling.StepNormalizerMode;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -15,12 +16,16 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.Pathway.DriverManager.DriverManager;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class Basepage {
 
 	public static  WebDriver driver;
 	final static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Basepage.class);
-	
+	public static ExtentTest test;
+    public static ExtentReports reports;
 	
 
 	public void geturl(String url)
@@ -33,19 +38,39 @@ public class Basepage {
 		driver.navigate().refresh();
 		System.out.println("page has refreshed");
 	}
+	public void extentreporinit(String descrption)
+	{
+		String workingdir = System.getProperty("user.dir");
+		  reports = new ExtentReports(workingdir+"\\Buildoutresult\\extentreport.html",true);
+		  test = reports.startTest("Pathwaytest",descrption );
+	}
+	public void extentreportssave()
+	{
+		reports.endTest(test);
+		reports.flush();
+	}
+	
+	public void extentpassreport(String stepname)
+	{
+		test.log(LogStatus.PASS, stepname+"success");
+	}
+	public void extentfailreport(String stepname)
+	{
+		test.log(LogStatus.FAIL, stepname+"failed");
+	}
 
 
 	public void click(By locator) {
 		WebElement element = driver.findElement(locator);
 		element.click();
-		//element.clear();
+		
 	}
-	public void Cleartext(By locator)
+	public void cleartext(By locator)
 	{
 		WebElement element = driver.findElement(locator);
 		element.clear();
 	}
-	public void MOuseoverelement( By locator)
+	public void mouseoverelement( By locator)
 	{
 		WebElement element = driver.findElement(locator);
 		Actions a = new Actions(driver);
@@ -77,6 +102,23 @@ public class Basepage {
 		
 		js.executeScript("arguments[0].scrollIntoView();", element);
 	}
+	public void validatingpage(By locator, String stepname)
+	{
+		WebElement element = driver.findElement( locator);
+		
+		if (element.isDisplayed()) 
+		{
+			System.out.println(stepname+"Test Case passed");
+			test.log(LogStatus.PASS, stepname+"Testacase running succesfully");
+		}
+		else {
+			
+			System.out.println(stepname+"Test casefailed");
+			test.log(LogStatus.FAIL,stepname+"Testcase running is unsuccesfully");
+		}
+	}
+	
+	
 
 	public WebElement explicitWait(By locator) {
 		return new WebDriverWait(driver, 70).until(ExpectedConditions.presenceOfElementLocated(locator));

@@ -31,6 +31,7 @@ public class Cancelationflowpages extends Basepage
 	private By legaluserconfirmationbutton = By.xpath("(.//*[text()='YES'])[1]");
 
 
+
 	public void riseCancelationRequestWithMUuser( String Txid, String Rxid)
 	{   click(createNewcancelationbutton);
 		sleep();

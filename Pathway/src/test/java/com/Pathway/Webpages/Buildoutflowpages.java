@@ -40,7 +40,7 @@ public class Buildoutflowpages extends Basepage
 		sleep();
 		scrollintoelement(dateofcompletedlabel);
 		sleep();
-		Cleartext(selectdatefieldbox);
+		cleartext(selectdatefieldbox);
 		sleep();
 		enterText(selectdatefieldbox, date);
 		sleep();

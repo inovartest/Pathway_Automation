@@ -12,7 +12,7 @@ public class LogoutPage extends Basepage
 	
 	public void logoutUser()
 	{
-		MOuseoverelement(accounticon);
+		mouseoverelement(accounticon);
 		sleep();
 		click(logoutbutton);
 		sleep();
