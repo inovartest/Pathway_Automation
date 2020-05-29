@@ -3,9 +3,10 @@ Feature: Check the buildoutflow functionality with Pathway tool
 @tag1
 Scenario: Rise a Buildout request with Market user
 
-Given Enter Url of application into the "chrome" browser for BUildOutrequest
+Given Enter Url of application into the "headless
+chrome" browser for BUildOutrequest
 When Market user loginwith valid credtinals for BUildOutrequest process
-Then Rise a BUildOut request with Marketuser 35 with date "05-20-2020"
+Then Rise a BUildOut request with Marketuser 194 with date "05-20-2020"
 Then Logout MarketUser after rise a request for  BUildOut 
 @tag2
 Scenario: Check the status of BUildOut Request with RPM user

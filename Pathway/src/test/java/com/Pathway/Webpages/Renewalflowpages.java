@@ -32,7 +32,7 @@ public class Renewalflowpages extends Basepage
 	
 	public void renewalrequestwithmarketuser(String txid, String rxid)
 	{
-		click(createnewRenewalbutton);
+		explicitWaitClickable(createnewRenewalbutton);
 		sleep();
 		enterText(entertxidfiledforrenewal,txid );
 		sleep();
@@ -40,7 +40,7 @@ public class Renewalflowpages extends Basepage
 		sleep();
 		click(searchbutton);
 		sleep();
-		click(Marketuserchecklistbox);
+		explicitWaitClickable(Marketuserchecklistbox);
 		sleep();
 		scrollintoelement(reasonlbl);
 		sleep();

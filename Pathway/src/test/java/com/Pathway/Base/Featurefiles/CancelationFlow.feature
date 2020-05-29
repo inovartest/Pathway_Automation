@@ -5,7 +5,7 @@ Scenario: Rise a cancelation request with Market user
 
 Given Enter Url of application into the "chrome" browser
 When Market user loginwith valid credtinals for Cancelation process
-Then Rise a Cancelation request with Marketuser 193
+Then Rise a Cancelation request with Marketuser 199
 Then Logout MarketUser after rise a request for  Cancelation 
 @tag2
 Scenario: Check the status of Cancelation Request with RPM user
@@ -26,7 +26,7 @@ Then Logout RRM user after check the status of cancelation request
 Scenario: Check the status of the Cancelation Request with NOC user
 
 When NOC user login with Vlaid credtinals for Cancletaion process
-Then NOC user "Approved" Cancelation signal
+Then NOC user "Rejected" Cancelation signal
 Then Logout NOC user after suucesful check the status of Cancelation Process
 
 @tag5

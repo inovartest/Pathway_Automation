@@ -5,7 +5,7 @@ Scenario: Rise a Renewal request with Market user
 
 Given Enter Url of application into the "chrome" browsern for Renewal process
 When Market user loginwith valid credtinals for Renewal process
-Then Rise a Renewal  request with Marketuser 195
+Then Rise a Renewal  request with Marketuser 197
 Then Logout MarketUser after rise a request for  Renewal process
 @tag2
 Scenario: Check the status of Renewal Request with MDU user
@@ -34,7 +34,7 @@ Then Logout RPM user after suucesful check the status of Renewal Process
 Scenario: Check the status of the Renewal Request with NOC user
 
 When NOC user login with Valid credtinals for Renewal process
-Then NOC user "Approved" Renewal signal
+Then NOC user "Rejected" Renewal signal
 Then Logout NOC user after suucesful check the status of Renewal Process
 
 @tag6
