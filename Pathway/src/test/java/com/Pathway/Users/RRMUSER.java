@@ -3,6 +3,7 @@ package com.Pathway.Users;
 import com.Pathway.Webpages.Cancelationflowpages;
 import com.Pathway.Webpages.Homepage;
 import com.Pathway.Webpages.Loginpage;
+import com.Pathway.Webpages.RequestViewPage;
 
 import Testdata.DataRetrival;
 
@@ -12,6 +13,7 @@ public class RRMUSER
 	Homepage homepage = new Homepage();
 	Cancelationflowpages cancel = new Cancelationflowpages();
 	DataRetrival data = new DataRetrival();
+	RequestViewPage view = new RequestViewPage();
 	
 	public void loginwithRRMUser()
 	{
@@ -20,10 +22,11 @@ public class RRMUSER
 		login.doLogin(email, password);
 	}
 	
-	public void CancelationrequestwithRRMuser(String statusoftheapplication)
+	public void CancelationrequestwithRRMuser(String statusoftheapplication,int i)
 	{
 		homepage.cancelationbutton();
-		
+		view.requestview(i);
+	
 		if (statusoftheapplication.equals("Approved"))
 		{
 			cancel.approvecancelationwithRRMuser();

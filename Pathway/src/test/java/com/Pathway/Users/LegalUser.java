@@ -5,6 +5,7 @@ import com.Pathway.Webpages.Cancelationflowpages;
 import com.Pathway.Webpages.Homepage;
 import com.Pathway.Webpages.Loginpage;
 import com.Pathway.Webpages.Renewalflowpages;
+import com.Pathway.Webpages.RequestViewPage;
 
 import Testdata.DataRetrival;
 
@@ -16,6 +17,7 @@ public class LegalUser
 	DataRetrival data = new DataRetrival();
 	Renewalflowpages  renewalpage = new Renewalflowpages();
 	Buildoutflowpages buildout = new Buildoutflowpages();
+	RequestViewPage view = new RequestViewPage();
 	
 	public void loginwithLeaglUser()
 	{
@@ -25,9 +27,10 @@ public class LegalUser
 		login.doLogin(email, password);
 	}
 	
-	public void CancelationrequestwithLeagluser()
+	public void CancelationrequestwithLeagluser( int i)
 	{
 		homepage.cancelationbutton();
+		view.requestview(i);
 		
 		cancel.sendtoFCCwithLegaluser();
 	}

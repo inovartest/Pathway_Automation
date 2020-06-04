@@ -10,6 +10,7 @@ import com.Pathway.Users.RPMUser;
 import com.Pathway.Webpages.Loginpage;
 import com.Pathway.Webpages.LogoutPage;
 import com.Pathway.Webpages.MDuser;
+import com.Pathway.Webpages.RequestViewPage;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -26,6 +27,7 @@ public class Renewalflow  extends Basepage
 	LegalUser legaluser = new LegalUser();
 	Loginpage login = new Loginpage();
 	LogoutPage logout = new LogoutPage();
+	RequestViewPage view = new RequestViewPage();
 @Given("^Enter Url of application into the \"([^\"]*)\" browsern for Renewal process$")
 public void enter_Url_of_application_into_the_browsern_for_Renewal_process(String browsername) throws Throwable {
    init(browsername);
@@ -44,6 +46,7 @@ public void market_user_loginwith_valid_credtinals_for_Renewal_process() throws 
 public void rise_a_Renewal_request_with_Marketuser(int i) throws Throwable {
    markertuser.renewalrequest(i);
    System.out.println(">>>Rise a renewal  request with Market user ");
+   
 }
 
 @Then("^Logout MarketUser after rise a request for  Renewal process$")

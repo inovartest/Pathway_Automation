@@ -5,6 +5,7 @@ import com.Pathway.Webpages.Cancelationflowpages;
 import com.Pathway.Webpages.Homepage;
 import com.Pathway.Webpages.Loginpage;
 import com.Pathway.Webpages.Renewalflowpages;
+import com.Pathway.Webpages.RequestViewPage;
 
 import Testdata.DataRetrival;
 
@@ -16,6 +17,7 @@ public class NOCUser
 	DataRetrival data = new DataRetrival();
 	Renewalflowpages renewalpage = new Renewalflowpages();
 	Buildoutflowpages buildout = new Buildoutflowpages();
+	RequestViewPage view = new RequestViewPage();
 	public void loginwithNOCUser()
 	{
 		String email = data.getUsername(4);
@@ -24,9 +26,10 @@ public class NOCUser
 		login.doLogin(email, password);
 	}
 	
-	public void CancelationrequestwithNOCuser(String statusoftheapplication)
+	public void CancelationrequestwithNOCuser(String statusoftheapplication, int i)
 	{
 		homepage.cancelationbutton();
+		view.requestview(i);
 		
 		if (statusoftheapplication.equals("Approved"))
 		{

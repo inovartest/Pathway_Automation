@@ -102,6 +102,7 @@ public class Basepage {
 		
 		js.executeScript("arguments[0].scrollIntoView();", element);
 	}
+	
 	public void validatingpage(By locator, String stepname)
 	{
 		WebElement element = driver.findElement( locator);

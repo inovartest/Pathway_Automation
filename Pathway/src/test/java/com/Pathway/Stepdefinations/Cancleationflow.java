@@ -22,13 +22,14 @@ public class Cancleationflow extends Basepage
 {
 	MarketUser markertuser = new MarketUser();
 	RPMUser rpmuser = new RPMUser();
-	RequestViewPage view = new RequestViewPage();
 	Homepage home = new Homepage();
 	RRMUSER rrmuser = new RRMUSER();
 	NOCUser nocuser = new NOCUser();
 	LegalUser legaluser = new LegalUser();
 	Loginpage login = new Loginpage();
+	RequestViewPage view = new RequestViewPage();
 	LogoutPage logout = new LogoutPage();
+	
 	
 	Logger logger = Logger.getLogger(Cancleationflow.class);
 	@Given("^Enter Url of application into the \"([^\"]*)\" browser$")
@@ -52,8 +53,11 @@ public class Cancleationflow extends Basepage
 
 	@Then("^Rise a Cancelation request with Marketuser (\\d+)$")
 	public void rise_a_Cancelation_request_with_Marketuser(int i)  {
-	    markertuser.cancelationRequest(i);
-	    System.out.println(">>>Market user rise a request succesfully");
+	    /*markertuser.cancelationRequest(i);
+	    System.out.println(">>>Market user rise a request succesfully");*/
+		view.checking(i);
+	    System.out.println(">>> check the status of the cancelation request");
+	    
 	   
 	}
 
@@ -73,11 +77,11 @@ public class Cancleationflow extends Basepage
 		
 	}
 
-	@Then("^RPM user \"([^\"]*)\" Cancelation signal$")
-	public void rpm_user_Cancelation_signal(String statusoftheapplication)  
+	@Then("^RPM user \"([^\"]*)\" Cancelation signal with (\\d+)$")
+	public void rpm_user_Cancelation_signal(String statusoftheapplication, int i)  
 	{
 		
-	 rpmuser.CancelationrequestwithRPMuser(statusoftheapplication);
+	 rpmuser.CancelationrequestwithRPMuser(statusoftheapplication, i);
 	 System.out.println(">>>Check the status of the cancelation request with RPM user");
 	 
 	}
@@ -96,9 +100,9 @@ public class Cancleationflow extends Basepage
 	    System.out.println(">>>RRM user login with valid credtinals");
 	}
 
-	@Then("^RRM user \"([^\"]*)\" Cancelation Signal$")
-	public void rrm_user_Cancelation_Signal(String statusoftheapplication) {
-	  rrmuser.CancelationrequestwithRRMuser(statusoftheapplication);
+	@Then("^RRM user \"([^\"]*)\" Cancelation Signal with (\\d+)$")
+	public void rrm_user_Cancelation_Signal(String statusoftheapplication, int i) {
+	  rrmuser.CancelationrequestwithRRMuser(statusoftheapplication, i);
 	  System.out.println(">>Check the" +statusoftheapplication+ "of the application with with RRM user");
 	}
 
@@ -115,9 +119,9 @@ public class Cancleationflow extends Basepage
 	   System.out.println(">>>login with NOC user for cancelation request with valid credtinals");
 	}
 
-	@Then("^NOC user \"([^\"]*)\" Cancelation signal$")
-	public void noc_user_Cancelation_signal(String statusoftheapplication)  {
-	    nocuser.CancelationrequestwithNOCuser(statusoftheapplication);
+	@Then("^NOC user \"([^\"]*)\" Cancelation signal with (\\d+)$")
+	public void noc_user_Cancelation_signal(String statusoftheapplication , int i)  {
+	    nocuser.CancelationrequestwithNOCuser(statusoftheapplication, i);
 	    System.out.println(">>>Check the" +statusoftheapplication+ "of the application with NOC user");
 	}
 
@@ -134,9 +138,9 @@ public class Cancleationflow extends Basepage
 	    System.out.println(">>>Login with Legaluser with valid credtinals for cancelation request");
 	}
 
-	@Then("^Request send to FCC with Legal user$")
-	public void request_send_to_FCC_with_Legal_user() throws Throwable {
-	    legaluser.CancelationrequestwithLeagluser();
+	@Then("^Request send to FCC with Legal user with (\\d+)$")
+	public void request_send_to_FCC_with_Legal_user(int i) throws Throwable {
+	    legaluser.CancelationrequestwithLeagluser(i);
 	    System.out.println("Check the status of the application with Legal user");
 	}
 

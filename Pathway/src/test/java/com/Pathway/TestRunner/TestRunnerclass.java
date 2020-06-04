@@ -3,6 +3,7 @@ package com.Pathway.TestRunner;
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 
+import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.cucumber.listener.Reporter;
 
 import cucumber.api.CucumberOptions;
@@ -22,8 +23,12 @@ public class TestRunnerclass  extends AbstractTestNGCucumberTests{
 	@AfterClass
     public static void writeExtentReport() {
         Reporter.loadXMLConfig("src/extentreport.xml");
+        
     }
 }
+
+
+
 
 
 

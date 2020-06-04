@@ -19,17 +19,17 @@ public class Cancelationflowpages extends Basepage
 	private By proceedbutton = By.xpath("//button[contains(text(),'PROCEED')]");
 	private By confirmationbutton = By.xpath("(.//*[text()='YES'])[1]");
 	private By requestOKbutton = By.xpath("(.//*[text()='OK'])[1]");
-	private By RPMuserchecklistbox = By.xpath("//body/app-root/app-cancellations/app-mu-cancellationsdatagrid/div[@class='container-fluid content']/div[@class='row m-0 p-0']/div[@class='main-content m-0 p-0']/div[@class='page-info']/div[@class='mv-tabs-container']/section[@id='tabs']/div[@class='w-100 m-0 p-0']/div[@class='col-xs-12 m-0 p-0']/app-admin-grid/div[@class='w-100 pl-3 pr-3']/div[@class='grid-component grid-component-primary grid-component-primary--pos']/angular-slickgrid/div[@id='slickGridContainer-grid4']/div[@id='grid4']/div[@class='slick-pane slick-pane-top slick-pane-left']/div[@class='slick-viewport slick-viewport-top slick-viewport-left']/div[@class='grid-canvas grid-canvas-top grid-canvas-left']/div[1]/div[1]");
+	private By RPMuserchecklistbox = By.xpath("//div[@class='slick-cell l0 r0 true active']");
 	private By approvebutton = By.name("approveBtn:0");
 	private By rejectbutton = By.name("rejectBtn:0");
 	private By selectreasonforrejection = By.xpath("//select[@class='w-100 ng-untouched ng-pristine ng-valid']");
 	private By rejectconfirmationbutton = By.xpath("//div[@class='modal-dialog reject-modal']//button[@class='btn-grid approve'][contains(text(),'YES')]");
-	private By RRMuserchecklistbox = By.xpath("(.//*[@class='slick-cell l0 r0 true'])[1]");
-	private By NOCuserchecklistbox = By.xpath("//div[@class='slick-cell l0 r0 true']");
-	private By Leagluserchecklistbox = By.xpath("(.//*[@class='slick-cell l0 r0 true'])[1]");
+	private By RRMuserchecklistbox = By.xpath("//div[@class='slick-cell l0 r0 true']//label");
+	private By NOCuserchecklistbox = By.xpath("//div[@class='slick-cell l0 r0 true']//label");
+	private By Leagluserchecklistbox = By.xpath("//div[@class='slick-cell l0 r0 true']//label");
 	private By sendtoFCCbutton = By.xpath("//button[@name='approveBtn:0']");
 	private By legaluserconfirmationbutton = By.xpath("(.//*[text()='YES'])[1]");
-
+RequestViewPage view = new RequestViewPage();
 
 
 	public void riseCancelationRequestWithMUuser( String Txid, String Rxid)
@@ -57,12 +57,13 @@ public class Cancelationflowpages extends Basepage
 		sleep();
 		explicitWaitClickable(requestOKbutton);
 		sleep();
+		refreshthepage();
 	}
 
 	public void approvecancelationwithRPMuser()
 	{
-		click(RPMuserchecklistbox);
-		sleep();
+		
+		explicitWaitClickable(RPMuserchecklistbox);
 		click(approvebutton);
 		sleep();
 		click(confirmationbutton);

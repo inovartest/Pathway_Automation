@@ -1,4 +1,4 @@
-package Testdata;
+package com.Pathway.Testdata;
 
 import java.io.File;
 import java.io.FileInputStream;

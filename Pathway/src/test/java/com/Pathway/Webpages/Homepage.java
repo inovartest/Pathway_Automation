@@ -11,13 +11,17 @@ public class Homepage extends Basepage
 	 private By Renewalbutton = By.xpath("(.//*[@class='menu-items'])[3]");
 	 private By Buildooutbuuton = By.xpath("(.//*[@class='menu-items'])[4]");
 	public By accountlbl = By.className("dashboard-list-cards-header");
-			
+		private By dashboardbutton = By.xpath("(.//*[@class='menu-items'])[1]");	
 	 public void cancelationbutton()
 	 {
 		explicitWaitClickable(cancelationbutton);
 		 sleep();
 	 }
-	 public void renewalbutton()
+	 public void dashboardbutton()
+	 {
+explicitWaitClickable(dashboardbutton);
+sleep();
+	 }public void renewalbutton()
 	 {
 		 explicitWaitClickable(Renewalbutton);
 		 sleep();

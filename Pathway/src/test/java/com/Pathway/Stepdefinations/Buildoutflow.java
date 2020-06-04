@@ -18,17 +18,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class Buildoutflow  extends Basepage{
-
-	@Given("^Enter Url of application into the \"([^\"]*)\" browser for BUildOutrequest$")
-	public void enter_Url_of_application_into_the_browser_for_BUildOutrequest(String browsername) throws Throwable 
-	{
-		extentreporinit( descrption);
-	    init(browsername);
-	    loggger.debug("Browser intiation succesfully");
-	    geturl(Pathwayconstants.URL_OF_THE_APPLICATION);
-	    System.out.println(">>>Launch application succesfully ");
-	}
+public class Buildoutflow  extends Basepage
+{
 
 	MarketUser markertuser = new MarketUser();
 	Homepage home = new Homepage();
@@ -38,6 +29,17 @@ public class Buildoutflow  extends Basepage{
 	Loginpage login = new Loginpage();
 	LogoutPage logout = new LogoutPage();
 	RequestViewPage view = new RequestViewPage();
+	@Given("^Enter Url of application into the \"([^\"]*)\" browser for BUildOutrequest$")
+	public void enter_Url_of_application_into_the_browser_for_BUildOutrequest(String browsername) throws Throwable 
+	{
+	
+	    init(browsername);
+	   // loggger.debug("Browser intiation succesfully");
+	    geturl(Pathwayconstants.URL_OF_THE_APPLICATION);
+	    System.out.println(">>>Launch application succesfully ");
+	}
+
+	
 	//String stepname = "buildoutflow";
 	String descrption ="Test the buildoutflowof pathwaytool";
 	public Logger loggger = Logger.getLogger("Devipnoylogger");
@@ -73,48 +75,57 @@ public void rpm_user_login_with_valid_credtinals_for_BUildOut_process() throws T
 {
     login.loginwithsecondaccount();
     rpmuser.loginwithRPMUser();
+    System.out.println(">>>succesfully login RPM user with valid credtinals for Build out process");
 }
 
 @Then("^RPM user \"([^\"]*)\" BUildOut request signal$")
 public void rpm_user_BUildOut_request_signal(String statusoftheapplication) throws Throwable {
     rpmuser.buildoutrequestwithRPMuser(statusoftheapplication);
+    System.out.println(">>>check the "+statusoftheapplication+"with RPM user");
 }
 
 @Then("^Logout RPM user after check the status of BUildOut request$")
 public void logout_RPM_user_after_check_the_status_of_BUildOut_request() throws Throwable {
   logout.logoutUser();
+  System.out.println(">>>Logout RPM user");
 }
 
 @When("^NOC user login with valid credtinals for BUildOutrequest process$")
 public void noc_user_login_with_valid_credtinals_for_BUildOutrequest_process() throws Throwable {
    login.loginwithThirdaccount();
    nocuser.loginwithNOCUser();
+   System.out.println(">>>Login NOC user with Valid credtinals for Build out process");
 }
 
 @Then("^NOC user \"([^\"]*)\" BUildOutrequest Signal$")
 public void noc_user_BUildOutrequest_Signal(String statusoftheapplication) throws Throwable {
     nocuser.buildourequestwithNOCuser(statusoftheapplication);
+    System.out.println(">>>check the"+statusoftheapplication+"with NOC user");
 }
 
 @Then("^Logout NOC user after check the status of BUildOutrequest$")
 public void logout_NOC_user_after_check_the_status_of_BUildOutrequest() throws Throwable {
     logout.logoutUser();
+    System.out.println(">>>Logout NOC user");
 }
 
 @When("^LEGAL user login with valid credtinals for BUildOutrequest$")
 public void legal_user_login_with_valid_credtinals_for_BUildOutrequest() throws Throwable {
 login.loginwithFourthaccount();
 legaluser.loginwithLeaglUser();
+System.out.println(">>>Login with Legal user with Valid credtinals for Build out process");
 }
 
 @Then("^Request send to FCC with Legal user FOR BUildOutrequest$")
 public void request_send_to_FCC_with_Legal_user_FOR_BUildOutrequest() throws Throwable {
    legaluser.sendtoFCCbuildrequestwithLegalsuer();
+   System.out.println(">>>Build out request sent to FCC with Legal user");
 }
 
 @Then("^Logout LEGAL user after succesful BUildOutrequest Send to FCC$")
 public void logout_LEGAL_user_after_succesful_BUildOutrequest_Send_to_FCC() throws Throwable {
     logout.logoutUser();
+    System.out.println(">>>Logout legal customer after build out process");
    
 }
 }

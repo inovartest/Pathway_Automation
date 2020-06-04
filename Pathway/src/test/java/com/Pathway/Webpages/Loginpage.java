@@ -34,16 +34,26 @@ public class Loginpage extends Basepage
 			sleep();
 			click(Nextbuttonforsignin);
 			sleep();
+			/*WebElement element = driver.findElement(Passwordfiledbox);
+			WebDriverWait wait = new WebDriverWait(driver, 10);
+			wait.until(ExpectedConditions.presenceOfElementLocated(Passwordfiledbox));*/
 			/*refreshthepage();
 			refreshthepage();*/
 			enterText(Passwordfiledbox, password);
 			sleep();
+			//element.sendKeys(password);
 		} catch (StaleElementReferenceException e) {
 			enterText(Passwordfiledbox, password);
 			sleep();
 		}
-		click(signinbutton);
-		sleep();
+	/*	WebElement element1 = driver.findElement(signinbutton);
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.presenceOfElementLocated(Passwordfiledbox));
+		element1.click();*/
+		
+		
+		explicitWaitClickable(signinbutton);
+		//sleep();
 	}
 	public void ClickYesbutton()
 	{

@@ -20,9 +20,9 @@ public class MarketUser
 	
 	public void loginwithMarketUser()
 	{
-		String email = data.getUsername(1);
-		String password = data.getPassword(1);
-		login.doLogin(email, password);
+		/*String email = data.getUsername(1);
+		String password = data.getPassword(1);*/
+		login.doLogin(data.getUsername(1), data.getPassword(1));
 	}
 	
 	public void cancelationRequest(int i)
