@@ -16,14 +16,14 @@ public class Buildoutflowpages extends Basepage
 	private By proceedbuttonforbuildout = By.xpath("//button[contains(text(),'PROCEED')]");
 	private By buildoutconfirmationbutton = By.xpath("(.//*[text()='YES'])[1]");
 	private By okbutton = By.xpath("(.//*[text()='OK'])[1]");
-	private By rpmchecklistbox = By.xpath("(.//*[@class='slick-cell l0 r0 true'])[1]");
-	private By approvebuildoutbutton = By.name("approveBtn:0");
+	private By rpmchecklistbox = By.xpath("//input[@type='checkbox']");
+	private By approvebuildoutbutton = By.xpath("(.//*[@class='btn-grid approve'])[1]");
 	private By rejectforbuildoutbutton = By.name("rejectBtn:0");
 	private By selectrejectreasonforbuildout =By.xpath("//select[@class='w-100 ng-pristine ng-valid ng-touched']");
 	private By rejectconfirmationbutton =By.xpath("(.//*[text()='YES'])[2]");
-	private By noccheclistboxforbuildout = By.xpath("(.//*[@class='slick-cell l0 r0 true'])[1]");
-	private By legalsuerchecklistbox = By.xpath("(.//*[@class='slick-cell l0 r0 true'])[1]");
-	private By sendtofccbuildoutbutton = By.name("approveBtn:0");
+	private By noccheclistboxforbuildout = By.xpath("//input[@type='checkbox']");
+	private By legalsuerchecklistbox = By.xpath("//input[@type='checkbox']");
+	private By sendtofccbuildoutbutton =By.xpath("(.//*[@class='btn-grid approve'])[1]");
 	private By SendoutFCCconfirmatiobuttonforbuildout =By.xpath("(.//*[text()='YES'])[1]");
 	
 	public void createnewbuildoutrequestwithMarketuser(String txid, String rxid, String date)
@@ -53,14 +53,15 @@ public class Buildoutflowpages extends Basepage
 		click(buildoutconfirmationbutton);
 		sleep();
 		click(okbutton);
-		sleep();
+		refreshthepage();
+		refreshthepage();
+		
 		
 		}
 	
 	public void buildoutrequestapprovewithRPMuser()
 	{
-		click(rpmchecklistbox);
-		sleep();
+		elementclickbyjs(rpmchecklistbox);
 		click(approvebuildoutbutton);
 		sleep();
 		click(buildoutconfirmationbutton);
@@ -68,8 +69,7 @@ public class Buildoutflowpages extends Basepage
 	}
 	public void buildoutrequestrejectwithRPMuser()
 	{
-		click(rpmchecklistbox);
-		sleep();
+		elementclickbyjs(rpmchecklistbox);
 		click(rejectforbuildoutbutton);
 		sleep();
 		select(selectrejectreasonforbuildout, "Link no longer needed");
@@ -80,8 +80,7 @@ public class Buildoutflowpages extends Basepage
 	
 	public void buildoutrequestapprovewithNOCuser()
 	{
-		click(noccheclistboxforbuildout);
-		sleep();
+		elementclickbyjs(noccheclistboxforbuildout);
 		click(approvebuildoutbutton);
 		sleep();
 		click(buildoutconfirmationbutton);
@@ -89,8 +88,7 @@ public class Buildoutflowpages extends Basepage
 	}
 	public void buildoutrequestrejectwithNOCuser()
 	{
-		click(noccheclistboxforbuildout);
-		sleep();
+		elementclickbyjs(noccheclistboxforbuildout);
 		click(rejectforbuildoutbutton);
 		sleep();
 		select(selectrejectreasonforbuildout, "Link no longer needed");
@@ -100,8 +98,7 @@ public class Buildoutflowpages extends Basepage
 	}
 	public void sendtoFCCbuildoutrequest()
 	{
-		click(legalsuerchecklistbox);
-		sleep();
+		elementclickbyjs(legalsuerchecklistbox);
 		click(sendtofccbuildoutbutton);
 		sleep();
 		click(SendoutFCCconfirmatiobuttonforbuildout);

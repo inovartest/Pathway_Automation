@@ -3,8 +3,11 @@ package com.Pathway.Webpages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.Pathway.Base.Basepage;
 
@@ -23,19 +26,24 @@ public class RequestViewPage extends Basepage
 	private By checkboxforlist = By.xpath("(.//*[@class='slick-cell l0 r0 true'])[19]");
 	//private By clickViewbutton =By.xpath(".//*[@name='viewDetailsButtonForCancellationApproved:19']");
 	private By cancelationrequestdashboard = By.xpath("(.//*[@class='dashboard-list-cards-header'])[1]");
+	private By Renewalrequestdashboard =By.xpath("(.//*[@class='dashboard-list-cards-header'])[3]");
 	private By inprogressbox = By.xpath("//a[contains(text(),'IN PROGRESS')]");
 	private By viewbutton = By.xpath("//div[@class='name']");
 	private By footernextbutton = By.xpath("//a[@class='page-link icon-seek-end fa fa-lg fa-angle-double-right']");
 	private By txidlbl = By.xpath("//span[contains(text(),'TX Site ID')]");
-	private By txidsearchbar = By.xpath("(.//*[@id='filter-site'])[1]");
+	private By txidsearchbar = By.xpath("(.//*[@placeholder='🔍'])[4]");
 	private By checkbox = By.xpath("//div[@class='slick-cell l0 r0 true']//label");
 	private By viebutton = By.xpath("//button[@name='viewDetailsButtonForCancellationApproved:0']");
+	private By searchfornr =By.xpath(".//*[@class='form-control search-filter filter-site']");
+	private By Buildoutdashboard = By.xpath("(.//*[@class='dashboard-list-cards-header'])[2]");
+	private By buildoutprotractive = By.xpath(".//*[@id='nav-approved-tab']");
+	private By buildouttxlbl =By.xpath("(.//*[@class='slick-column-name'])[4]");
 	DataRetrival data = new DataRetrival();
 	Homepage home = new Homepage();
-	
-	public void checking(int i)
+	private By searchbarr= By.xpath("//input[@id='filter-site']");
+	public void cancelationchecking(int i)
 	{
-		//home.dashboardbutton();
+		home.dashboardbutton();
 		String txid =data.getColumn_1(i);
 		explicitWaitClickable(cancelationrequestdashboard);
 		explicitWaitClickable(inprogressbox);
@@ -45,14 +53,72 @@ public class RequestViewPage extends Basepage
 		sleep();
 		explicitWaitClickable(checkbox);
 		explicitWaitClickable(viebutton);
-		
 			}
-	public void requestview(int i)
+	public void renewalchecking(int i)
 	{
-		String txid = data.getColumn_1(i);
+		//home.dashboardbutton();
+		String txid =data.getColumn_1(i);
+		explicitWaitClickable(Renewalrequestdashboard);
+		explicitWaitClickable(inprogressbox);
 		explicitWaitClickable(txidlbl);
 		enterText(txidsearchbar, txid);
 		enter();
+		sleep();
+		explicitWaitClickable(checkbox);
+		explicitWaitClickable(viebutton);
+		
+	}
+	public void buildoutchecking(int i)
+	{
+		//home.dashboardbutton();
+		String txid =data.getColumn_1(i);
+		explicitWaitClickable(Buildoutdashboard);
+		//explicitWaitClickable(buildoutprotractive);
+		explicitWaitClickable(buildouttxlbl);
+		enterText(txidsearchbar, txid);
+		enter();
+		sleep();
+		explicitWaitClickable(checkbox);
+		explicitWaitClickable(viebutton);
+		
+	}
+	public void requestview(int i)
+	{
+		
+		//String txid = data.getColumn_1(i);
+		
+		/*explicitWaitClickable(txidlbl);*/
+		/*explicitWait(searchbarr);
+		try {
+			enterText(txidsearchbar, txid);
+			enter();
+		} catch (Exception e) {
+			
+		}*/
+		WebElement txbtn =  driver.findElement(By.xpath("//span[contains(text(),'TX Site ID')]"));
+		 /* WebDriverWait txwait = new WebDriverWait(driver, 40);
+        txwait.until(ExpectedConditions.elementToBeClickable(txbtn));*/
+    
+        JavascriptExecutor executor1 = (JavascriptExecutor)driver;
+        executor1.executeScript("arguments[0].click();", txbtn);
+        sleep();
+       
+        WebElement element = driver.findElement(By.xpath("//input[@type='text' and @id='filter-site']"));
+        element.sendKeys(data.getColumn_1(i));
+		
+	}
+	public void requestvieww(int i)
+	{
+		String txid = data.getColumn_1(i);
+		explicitWaitClickable(txidlbl);
+		try {
+			enterText(searchbarr, txid);
+			enter();
+		} catch (StaleElementReferenceException e) {
+			enterText(searchbarr, txid);
+			enter();	
+		}
+		
 	}
 	public void checkapprovedlist()
 	{

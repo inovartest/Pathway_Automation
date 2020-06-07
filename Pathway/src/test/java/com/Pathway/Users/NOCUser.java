@@ -20,10 +20,12 @@ public class NOCUser
 	RequestViewPage view = new RequestViewPage();
 	public void loginwithNOCUser()
 	{
-		String email = data.getUsername(4);
-		String password = data.getPassword(4);
+		try {
+			login.doLogin(data.getUsername(4), data.getPassword(4));
+		} catch (Exception e) {
+			
+		}
 		
-		login.doLogin(email, password);
 	}
 	
 	public void CancelationrequestwithNOCuser(String statusoftheapplication, int i)
@@ -39,9 +41,10 @@ public class NOCUser
 			cancel.rejectcancelationwithNOCuser();
 		}
 	}
-	public void renewalrequestwithNOCuser(String statusoftheapplication)
+	public void renewalrequestwithNOCuser(String statusoftheapplication, int i)
 	{
-		homepage.renewalbutton();		
+		homepage.renewalbutton();	
+		view.requestview(i);
 		if (statusoftheapplication.equals("Approved"))
 		{
 			renewalpage.renewlapprovewithNOCuser();
@@ -50,9 +53,10 @@ public class NOCUser
 			renewalpage.rejectrenewalwithNOCuser();
 		}
 	}
-	public void buildourequestwithNOCuser(String statusoftheapplication)
+	public void buildourequestwithNOCuser(String statusoftheapplication, int i)
 	{
-		homepage.Buildoutbutton();		
+		homepage.Buildoutbutton();	
+		view.requestview(i);
 		if (statusoftheapplication.equals("Approved"))
 		{
 			buildout.buildoutrequestapprovewithNOCuser();

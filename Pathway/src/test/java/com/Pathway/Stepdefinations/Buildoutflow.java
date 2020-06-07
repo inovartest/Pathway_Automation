@@ -55,15 +55,15 @@ public void market_user_loginwith_valid_credtinals_for_BUildOutrequest_process()
 
 @Then("^Rise a BUildOut request with Marketuser (\\d+) with date \"([^\"]*)\"$")
 public void rise_a_BUildOut_request_with_Marketuser(int i , String date) throws Throwable {
-   markertuser.buildoutrequest(i, date);
+  markertuser.buildoutrequest(i, date);
    System.out.println(">>>Rise a BUild out request with market user");
+ // view.buildoutchecking(i);
    
 }
 
 @Then("^Logout MarketUser after rise a request for  BUildOut$")
 public void logout_MarketUser_after_rise_a_request_for_BUildOut() throws Throwable 
 {
-	test.log(LogStatus.PASS, "succesfully rise build out request");
    logout.logoutUser();
    System.out.println(">>>logout market user after rise build out request");
 
@@ -78,9 +78,9 @@ public void rpm_user_login_with_valid_credtinals_for_BUildOut_process() throws T
     System.out.println(">>>succesfully login RPM user with valid credtinals for Build out process");
 }
 
-@Then("^RPM user \"([^\"]*)\" BUildOut request signal$")
-public void rpm_user_BUildOut_request_signal(String statusoftheapplication) throws Throwable {
-    rpmuser.buildoutrequestwithRPMuser(statusoftheapplication);
+@Then("^RPM user \"([^\"]*)\" BUildOut request signal with (\\d+)$")
+public void rpm_user_BUildOut_request_signal(String statusoftheapplication, int i) throws Throwable {
+    rpmuser.buildoutrequestwithRPMuser(statusoftheapplication, i);
     System.out.println(">>>check the "+statusoftheapplication+"with RPM user");
 }
 
@@ -97,9 +97,9 @@ public void noc_user_login_with_valid_credtinals_for_BUildOutrequest_process() t
    System.out.println(">>>Login NOC user with Valid credtinals for Build out process");
 }
 
-@Then("^NOC user \"([^\"]*)\" BUildOutrequest Signal$")
-public void noc_user_BUildOutrequest_Signal(String statusoftheapplication) throws Throwable {
-    nocuser.buildourequestwithNOCuser(statusoftheapplication);
+@Then("^^NOC user \"([^\"]*)\" BUildOutrequest Signal with (\\d+)$")
+public void noc_user_BUildOutrequest_Signal(String statusoftheapplication, int i) throws Throwable {
+    nocuser.buildourequestwithNOCuser(statusoftheapplication, i);
     System.out.println(">>>check the"+statusoftheapplication+"with NOC user");
 }
 
@@ -116,9 +116,9 @@ legaluser.loginwithLeaglUser();
 System.out.println(">>>Login with Legal user with Valid credtinals for Build out process");
 }
 
-@Then("^Request send to FCC with Legal user FOR BUildOutrequest$")
-public void request_send_to_FCC_with_Legal_user_FOR_BUildOutrequest() throws Throwable {
-   legaluser.sendtoFCCbuildrequestwithLegalsuer();
+@Then("^Request send to FCC with Legal user FOR BUildOutrequest with (\\d+)$")
+public void request_send_to_FCC_with_Legal_user_FOR_BUildOutrequest(int i) throws Throwable {
+   legaluser.sendtoFCCbuildrequestwithLegalsuer(i);
    System.out.println(">>>Build out request sent to FCC with Legal user");
 }
 

@@ -35,14 +35,16 @@ public class LegalUser
 		cancel.sendtoFCCwithLegaluser();
 	}
 	
-	public void renewalrequestsendtoFCCwithLegalsuer()
+	public void renewalrequestsendtoFCCwithLegalsuer(int i)
 	{
 		homepage.renewalbutton();
+		view.requestview(i);
 		renewalpage.sendtoFCCforrenewalconnection();
 	}
-	public void sendtoFCCbuildrequestwithLegalsuer()
+	public void sendtoFCCbuildrequestwithLegalsuer(int i)
 	{
 		homepage.Buildoutbutton();
+		view.requestview(i);
 		buildout.sendtoFCCbuildoutrequest();
 		
 	}

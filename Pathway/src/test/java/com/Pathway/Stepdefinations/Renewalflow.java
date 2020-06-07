@@ -46,11 +46,14 @@ public void market_user_loginwith_valid_credtinals_for_Renewal_process() throws 
 public void rise_a_Renewal_request_with_Marketuser(int i) throws Throwable {
    markertuser.renewalrequest(i);
    System.out.println(">>>Rise a renewal  request with Market user ");
+   view.renewalchecking(i);
    
 }
 
 @Then("^Logout MarketUser after rise a request for  Renewal process$")
-public void logout_MarketUser_after_rise_a_request_for_Renewal_process() throws Throwable {
+public void logout_MarketUser_after_rise_a_request_for_Renewal_process() throws Throwable 
+{
+	
     logout.logoutUser();
     System.out.println("Logout Market user after rise a renweal request ");
 }
@@ -62,8 +65,8 @@ public void mdu_user_login_with_valid_credtinals_for_Renewal_process() throws Th
    System.out.println(">>>Login with MDuser with valid credtinals for renewal process");
 }
 
-@Then("^MDU user \"([^\"]*)\" Renewal signal$")
-public void mdu_user_Renewal_signal(String arg1) throws Throwable {
+@Then("^MDU user \"([^\"]*)\" Renewal signal with (\\d+)$")
+public void mdu_user_Renewal_signal(String arg1, int i) throws Throwable {
     mduser.renewlrequetwithMDuser();
     System.out.println(">>> check the status of the application");
 }
@@ -81,10 +84,10 @@ public void mo_user_login_with_valid_credtinals_for_Renewal_process() throws Thr
    System.out.println("Login with MO user with valid credtinals for Reneweal process");
 }
 
-@Then("^MO user \"([^\"]*)\" Renewal Signal$")
-public void mo_user_Renewal_Signal(String statusofapplication) throws Throwable {
+@Then("^MO user \"([^\"]*)\" Renewal Signal with (\\d+)$")
+public void mo_user_Renewal_Signal(String statusofapplication, int i) throws Throwable {
    
-	mouser.renewalrequestwithMOuser(statusofapplication);
+	mouser.renewalrequestwithMOuser(statusofapplication, i);
 	System.out.println(">>check the "+statusofapplication+"process for renweal application with MO USER");
 }
 
@@ -101,9 +104,9 @@ public void rpm_user_login_with_Valid_credtinals_for_Renewal_process() throws Th
   System.out.println(">>>Login with RRM user with valid credtinals for renewal process");
 }
 
-@Then("^RPM user \"([^\"]*)\" Renewal signal$")
-public void rpm_user_Renewal_signal(String statsuoftheapplication) throws Throwable {
-   rpmuser.RenewalrequetwithRPMuser(statsuoftheapplication);
+@Then("^RPM user \"([^\"]*)\" Renewal signal with (\\d+)$")
+public void rpm_user_Renewal_signal(String statsuoftheapplication, int i) throws Throwable {
+   rpmuser.RenewalrequetwithRPMuser(statsuoftheapplication, i);
    System.out.println(">>> check the"+statsuoftheapplication+" with RPM user");
 }
 
@@ -120,9 +123,9 @@ public void noc_user_login_with_Valid_credtinals_for_Renewal_process() throws Th
     System.out.println(">>>Login NOC User with valid credtinals for Renewal process");
 }
 
-@Then("^NOC user \"([^\"]*)\" Renewal signal$")
-public void noc_user_Renewal_signal(String statusoftheapplication) throws Throwable {
-  nocuser.renewalrequestwithNOCuser(statusoftheapplication);
+@Then("^NOC user \"([^\"]*)\" Renewal signal with (\\d+)$")
+public void noc_user_Renewal_signal(String statusoftheapplication, int i) throws Throwable {
+  nocuser.renewalrequestwithNOCuser(statusoftheapplication, i);
   System.out.println(">>> check the "+statusoftheapplication+"with NOC user");
 }
 
@@ -144,9 +147,9 @@ public void legal_user_login_with_valid_credtinals_for_Renewal_Process() throws 
    System.out.println("Login Leagl user for Renewal process");
 }
 
-@Then("^Request send to FCC with Legal user FOR Renewal PROCESS$")
-public void request_send_to_FCC_with_Legal_user_FOR_Renewal_PROCESS() throws Throwable {
-    legaluser.renewalrequestsendtoFCCwithLegalsuer();
+@Then("^Request send to FCC with Legal user FOR Renewal PROCESS with (\\d+)$")
+public void request_send_to_FCC_with_Legal_user_FOR_Renewal_PROCESS(int i) throws Throwable {
+    legaluser.renewalrequestsendtoFCCwithLegalsuer(i);
     System.out.println("Send to fcc renewal request with Legal user");
 }
 

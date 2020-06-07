@@ -12,7 +12,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-features={"src\\test\\java\\com\\Pathway\\Base\\Featurefiles\\CancelationFlow.feature"},glue= "com.Pathway.Stepdefinations",
+features={"src\\test\\java\\com\\Pathway\\Base\\Featurefiles\\Buidoutflow.feature"},glue= "com.Pathway.Stepdefinations",
 monochrome = true,dryRun = false,strict = true,
 format = {
         "pretty",
@@ -26,6 +26,11 @@ public class TestRunnerclass  extends AbstractTestNGCucumberTests{
         
     }
 }
+
+
+
+
+
 
 
 

@@ -25,7 +25,12 @@ public class RRMUSER
 	public void CancelationrequestwithRRMuser(String statusoftheapplication,int i)
 	{
 		homepage.cancelationbutton();
-		view.requestview(i);
+		try {
+			view.requestview(i);
+		} catch (Exception e) {
+			
+		}
+
 	
 		if (statusoftheapplication.equals("Approved"))
 		{

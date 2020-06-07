@@ -40,9 +40,10 @@ public class RPMUser
 		}
 	}
 	
-	public void RenewalrequetwithRPMuser(String statsuoftheapplication)
+	public void RenewalrequetwithRPMuser(String statsuoftheapplication, int i)
 	{
 		homepage.renewalbutton();
+		view.requestview(i);
 		if (statsuoftheapplication.equals("Approved"))
 		{
 			renewalpage.renewlapprovewithRPMuser();
@@ -52,9 +53,10 @@ public class RPMUser
 		}
 	}
 	
-	public void buildoutrequestwithRPMuser(String statusoftheapplication)
+	public void buildoutrequestwithRPMuser(String statusoftheapplication, int i)
 	{
 		homepage.Buildoutbutton();
+		view.requestview(i);
 		if (statusoftheapplication.equals("Approved"))
 		{
 			buildout.buildoutrequestapprovewithRPMuser();

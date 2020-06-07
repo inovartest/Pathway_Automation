@@ -103,28 +103,27 @@ public class Loginpage extends Basepage
 	
 	public void loginwithsecondaccount()
 	{
-		click(loginsecondaccount);
+		explicitWaitClickable(loginsecondaccount);
 		sleep();
 	}
 	public void loginwithThirdaccount()
 	{
-		click(loginwiththirdaccount);
+		explicitWaitClickable(loginwiththirdaccount);
 		sleep();
 	}
 	public void loginwithFourthaccount()
 	{
-		click(loginwithfourthaccount);
+		explicitWaitClickable(loginwithfourthaccount);
 		sleep();
 	}
 	
 	public void loginwithfifthaccount()
-	{
-		click(loginwithfifthaccount);
+	{explicitWaitClickable(loginwithfifthaccount);
 		sleep();
 	}
 	public void loginwitsixthaccount()
 	{
-		click(loginwithsixthaccount);
+		explicitWaitClickable(loginwithsixthaccount);
 		sleep();
 	}
 }

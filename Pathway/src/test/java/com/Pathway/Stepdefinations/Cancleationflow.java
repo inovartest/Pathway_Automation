@@ -53,9 +53,9 @@ public class Cancleationflow extends Basepage
 
 	@Then("^Rise a Cancelation request with Marketuser (\\d+)$")
 	public void rise_a_Cancelation_request_with_Marketuser(int i)  {
-	    /*markertuser.cancelationRequest(i);
-	    System.out.println(">>>Market user rise a request succesfully");*/
-		view.checking(i);
+	    markertuser.cancelationRequest(i);
+	    System.out.println(">>>Market user rise a request succesfully");
+		view.cancelationchecking(i);
 	    System.out.println(">>> check the status of the cancelation request");
 	    
 	   
@@ -95,7 +95,7 @@ public class Cancleationflow extends Basepage
 
 	@When("^RRM user login with valid credtinals for Cancelation process$")
 	public void rrm_user_login_with_valid_credtinals_for_Cancelation_process()  {
-	    login.loginwithThirdaccount();
+	 login.loginwithThirdaccount();
 	    rrmuser.loginwithRRMUser();
 	    System.out.println(">>>RRM user login with valid credtinals");
 	}
@@ -108,7 +108,7 @@ public class Cancleationflow extends Basepage
 
 	@Then("^Logout RRM user after check the status of cancelation request$")
 	public void logout_RRM_user_after_check_the_status_of_cancelation_request() {
-	   logout.logoutUser();
+	  logout.logoutUser();
 	   System.out.println(">>>logout RRM user after check the status of cancelation request");
 	}
 

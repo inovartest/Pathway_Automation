@@ -19,15 +19,15 @@ public class Cancelationflowpages extends Basepage
 	private By proceedbutton = By.xpath("//button[contains(text(),'PROCEED')]");
 	private By confirmationbutton = By.xpath("(.//*[text()='YES'])[1]");
 	private By requestOKbutton = By.xpath("(.//*[text()='OK'])[1]");
-	private By RPMuserchecklistbox = By.xpath("//div[@class='slick-cell l0 r0 true active']");
-	private By approvebutton = By.name("approveBtn:0");
-	private By rejectbutton = By.name("rejectBtn:0");
+	private By RPMuserchecklistbox = By.xpath("//input[@type='checkbox']");
+	private By approvebutton = By.xpath("(.//*[@class='btn-grid approve'])[1]");
+	private By rejectbutton = By.xpath("(.//*[@class='btn-grid reject'])[1]");
 	private By selectreasonforrejection = By.xpath("//select[@class='w-100 ng-untouched ng-pristine ng-valid']");
 	private By rejectconfirmationbutton = By.xpath("//div[@class='modal-dialog reject-modal']//button[@class='btn-grid approve'][contains(text(),'YES')]");
-	private By RRMuserchecklistbox = By.xpath("//div[@class='slick-cell l0 r0 true']//label");
+	private By RRMuserchecklistbox = By.xpath("//input[@type='checkbox']");
 	private By NOCuserchecklistbox = By.xpath("//div[@class='slick-cell l0 r0 true']//label");
-	private By Leagluserchecklistbox = By.xpath("//div[@class='slick-cell l0 r0 true']//label");
-	private By sendtoFCCbutton = By.xpath("//button[@name='approveBtn:0']");
+	private By Leagluserchecklistbox = By.xpath("//input[@type='checkbox']");
+	private By sendtoFCCbutton = By.xpath("(.//*[@class='btn-grid approve'])[1]");
 	private By legaluserconfirmationbutton = By.xpath("(.//*[text()='YES'])[1]");
 RequestViewPage view = new RequestViewPage();
 
@@ -43,31 +43,38 @@ RequestViewPage view = new RequestViewPage();
 		sleep();
 		click(searchaccountforcancelation);
 		sleep();
-	explicitWaitClickable(CancelationchecklistboxforMU);
-		sleep();
-		scrollintoelement(reasonlbl);
-		sleep();
-		select(selectreasondropdown, "Link no longer needed");
-		sleep();
-		scrollintoelement(proceedbutton);
-		sleep();
-		click(proceedbutton);
-		sleep();
-		click(confirmationbutton);
-		sleep();
-		explicitWaitClickable(requestOKbutton);
-		sleep();
-		refreshthepage();
+		if (driver.findElement(By.xpath("//div[@class='ui-widget-content slick-row even']")).isDisplayed())
+		{
+			explicitWaitClickable(CancelationchecklistboxforMU);
+			sleep();
+			scrollintoelement(reasonlbl);
+			sleep();
+			select(selectreasondropdown, "Link no longer needed");
+			sleep();
+			scrollintoelement(proceedbutton);
+			sleep();
+			click(proceedbutton);
+			sleep();
+			click(confirmationbutton);
+			sleep();
+			explicitWaitClickable(requestOKbutton);
+			sleep();
+			refreshthepage();
+			
+		}
+		else {
+			System.out.println("TXid are used");
+		}
+	
 	}
 
 	public void approvecancelationwithRPMuser()
 	{
 		
-		explicitWaitClickable(RPMuserchecklistbox);
-		click(approvebutton);
-		sleep();
-		click(confirmationbutton);
-		sleep();
+		//explicitWaitClickable(RPMuserchecklistbox);
+		elementclickbyjs(RPMuserchecklistbox);
+		explicitWaitClickable(approvebutton);
+		explicitWaitClickable(confirmationbutton);
 	}
 
 	public void rejectcancelationwithRPMuser()
@@ -83,8 +90,7 @@ RequestViewPage view = new RequestViewPage();
 	}
 	public void approvecancelationwithRRMuser()
 	{
-		click(RRMuserchecklistbox);
-		sleep();
+		elementclickbyjs(RPMuserchecklistbox);
 		click(approvebutton);
 		sleep();
 		click(confirmationbutton);
@@ -104,8 +110,7 @@ RequestViewPage view = new RequestViewPage();
 	}
 	public void approvecancelationwithNOCuser()
 	{
-		click(NOCuserchecklistbox);
-		sleep();
+		elementclickbyjs(RPMuserchecklistbox);
 		click(approvebutton);
 		sleep();
 		click(confirmationbutton);
@@ -126,8 +131,7 @@ RequestViewPage view = new RequestViewPage();
 
 	public void sendtoFCCwithLegaluser()
 	{
-		click(Leagluserchecklistbox);
-		sleep();
+		elementclickbyjs(RPMuserchecklistbox);
 		click(sendtoFCCbutton);
 		sleep();
 		click(legaluserconfirmationbutton);

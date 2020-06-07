@@ -252,9 +252,10 @@ public class Basepage {
 			}
 		}
 	}
-	public void elemntclickbyjs(By locator)
+	public void elementclickbyjs(By locator)
 	{
 		WebElement element = driver.findElement(locator);
+		sleep();
 		JavascriptExecutor executor = (JavascriptExecutor)driver;
 		executor.executeScript("arguments[0].click();", element);
 	}
