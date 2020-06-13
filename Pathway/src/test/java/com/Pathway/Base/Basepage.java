@@ -1,12 +1,16 @@
 package com.Pathway.Base;
 
+import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.math3.ode.sampling.StepNormalizerMode;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver.Timeouts;
 import org.openqa.selenium.WebElement;
@@ -16,9 +20,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.Pathway.DriverManager.DriverManager;
+import com.relevantcodes.extentreports.DisplayOrder;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import com.relevantcodes.extentreports.NetworkMode;
 
 public class Basepage {
 
@@ -33,15 +39,29 @@ public class Basepage {
 		driver.get(url);
 		driver.manage().window().maximize();
 	}
+	public void getscreenshot(String stepname, String path)
+	{
+		try {
+			File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			//String des = path+stepname+".png";
+			File des = new File("./"+path+"/" + stepname + ".png");
+			FileUtils.copyFile(src, des);
+			sleep();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+	}
 	public void refreshthepage()
 	{
 		driver.navigate().refresh();
 		System.out.println("page has refreshed");
 	}
-	public void extentreporinit(String descrption)
+	public void extentreporinit(String descrption, String flowname)
 	{
 		String workingdir = System.getProperty("user.dir");
-		  reports = new ExtentReports(workingdir+"\\Buildoutresult\\extentreport.html",true);
+		  reports = new ExtentReports(workingdir+"\\"+flowname+"\\extentreport.html",false, DisplayOrder.NEWEST_FIRST, NetworkMode.ONLINE);
 		  test = reports.startTest("Pathwaytest",descrption );
 	}
 	public void extentreportssave()
@@ -74,7 +94,7 @@ public class Basepage {
 	{
 		WebElement element = driver.findElement(locator);
 		Actions a = new Actions(driver);
-		a.moveToElement(element).perform();
+		a.moveToElement(element).build().perform();
 		
 	}
 	

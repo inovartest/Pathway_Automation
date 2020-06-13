@@ -1,5 +1,6 @@
 package com.Pathway.Users;
 
+import com.Pathway.Base.Basepage;
 import com.Pathway.Webpages.Buildoutflowpages;
 import com.Pathway.Webpages.Cancelationflowpages;
 import com.Pathway.Webpages.Homepage;
@@ -9,7 +10,7 @@ import com.Pathway.Webpages.RequestViewPage;
 
 import Testdata.DataRetrival;
 
-public class LegalUser 
+public class LegalUser extends Basepage
 {
 	Loginpage login = new Loginpage();
 	Homepage homepage = new Homepage();
@@ -43,8 +44,10 @@ public class LegalUser
 	}
 	public void sendtoFCCbuildrequestwithLegalsuer(int i)
 	{
+		refreshthepage();
 		homepage.Buildoutbutton();
-		view.requestview(i);
+		sleep();
+		view.requestviewforpm(i);
 		buildout.sendtoFCCbuildoutrequest();
 		
 	}

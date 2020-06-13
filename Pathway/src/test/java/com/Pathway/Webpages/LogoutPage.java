@@ -1,5 +1,7 @@
 package com.Pathway.Webpages;
 
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.By;
 
 import com.Pathway.Base.Basepage;
@@ -12,10 +14,16 @@ public class LogoutPage extends Basepage
 	
 	public void logoutUser()
 	{
-		mouseoverelement(accounticon);
-		sleep();
-		click(logoutbutton);
-		sleep();
+		try {
+			
+			mouseoverelement(accounticon);
+			sleep();
+			explicitWaitClickable(logoutbutton);
+			sleep();
+		} catch (NoSuchElementException e) {
+			
+		}
+		
 }
 
 }

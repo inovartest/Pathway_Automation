@@ -1,5 +1,6 @@
 package com.Pathway.Users;
 
+import com.Pathway.Base.Basepage;
 import com.Pathway.Webpages.Buildoutflowpages;
 import com.Pathway.Webpages.Cancelationflowpages;
 import com.Pathway.Webpages.Homepage;
@@ -9,7 +10,7 @@ import com.Pathway.Webpages.RequestViewPage;
 
 import Testdata.DataRetrival;
 
-public class RPMUser 
+public class RPMUser extends Basepage
 {
 
 	Loginpage login = new Loginpage();
@@ -43,6 +44,7 @@ public class RPMUser
 	public void RenewalrequetwithRPMuser(String statsuoftheapplication, int i)
 	{
 		homepage.renewalbutton();
+	
 		view.requestview(i);
 		if (statsuoftheapplication.equals("Approved"))
 		{
@@ -55,8 +57,10 @@ public class RPMUser
 	
 	public void buildoutrequestwithRPMuser(String statusoftheapplication, int i)
 	{
+		refreshthepage();
 		homepage.Buildoutbutton();
-		view.requestview(i);
+		sleep();
+		view.requestviewforpm(i);
 		if (statusoftheapplication.equals("Approved"))
 		{
 			buildout.buildoutrequestapprovewithRPMuser();
@@ -64,6 +68,13 @@ public class RPMUser
 		else {
 			buildout.buildoutrequestrejectwithRPMuser();
 		}
+	}
+	public void createbuildoutrequestwithrpm(int i, String date)
+	{
+		String txid = data.getColumn_1(i);
+		String rxid = data.getColumn_2(i);
+		homepage.Buildoutbutton();
+		buildout.createnewbuildoutrequestwithRPMuser(txid, rxid, date);
 	}
 
 }

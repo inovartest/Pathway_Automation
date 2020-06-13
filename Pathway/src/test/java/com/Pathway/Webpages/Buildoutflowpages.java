@@ -11,15 +11,17 @@ public class Buildoutflowpages extends Basepage
 	private By rxfieldboxforbuildout = By.xpath("//input[@placeholder='Enter RX Site ID']");
 	private By searchidbutton = By.cssSelector("#search-button");
 	private By marketuserchicklestbox = By.xpath("(.//*[@class='slick-cell l0 r0 true'])[1]");
+	private By rpmuserchecklistbox =By.xpath("(.//*[@class='slick-cell l0 r0 true'])[1]");
 	private By dateofcompletedlabel = By.xpath("//h2[contains(text(),'Date Completed')]");
 	private By selectdatefieldbox = By.xpath("//input[@placeholder='Date To Complete']");
 	private By proceedbuttonforbuildout = By.xpath("//button[contains(text(),'PROCEED')]");
+	private By proceedbuttonforRPM = By.xpath("(.//*[@class='btn-grid approve create-cancel float-right'])[1]");
 	private By buildoutconfirmationbutton = By.xpath("(.//*[text()='YES'])[1]");
 	private By okbutton = By.xpath("(.//*[text()='OK'])[1]");
 	private By rpmchecklistbox = By.xpath("//input[@type='checkbox']");
 	private By approvebuildoutbutton = By.xpath("(.//*[@class='btn-grid approve'])[1]");
-	private By rejectforbuildoutbutton = By.name("rejectBtn:0");
-	private By selectrejectreasonforbuildout =By.xpath("//select[@class='w-100 ng-pristine ng-valid ng-touched']");
+	private By rejectforbuildoutbutton = By.xpath("(.//*[@class='btn-grid reject'])[1]");
+	private By selectrejectreasonforbuildout =By.xpath(".//*[@class='w-100 ng-valid ng-dirty ng-touched']");
 	private By rejectconfirmationbutton =By.xpath("(.//*[text()='YES'])[2]");
 	private By noccheclistboxforbuildout = By.xpath("//input[@type='checkbox']");
 	private By legalsuerchecklistbox = By.xpath("//input[@type='checkbox']");
@@ -37,7 +39,6 @@ public class Buildoutflowpages extends Basepage
 		click(searchidbutton);
 		sleep();
 		explicitWaitClickable(marketuserchicklestbox);
-		sleep();
 		scrollintoelement(dateofcompletedlabel);
 		sleep();
 		cleartext(selectdatefieldbox);
@@ -48,16 +49,43 @@ public class Buildoutflowpages extends Basepage
 		//scrollintoelement(proceedbuttonforbuildout);
 		sleep();
 		//click(proceedbuttonforbuildout);
-*/		explicitWaitClickable(proceedbuttonforbuildout);
+		 */
+		
+		explicitWaitClickable(proceedbuttonforbuildout);
 		sleep();
 		click(buildoutconfirmationbutton);
 		sleep();
-		click(okbutton);
+		explicitWaitClickable(okbutton);
 		refreshthepage();
-		refreshthepage();
+		
 		
 		
 		}
+	public void createnewbuildoutrequestwithRPMuser(String txid, String rxid, String date)
+	{
+		explicitWaitClickable(createnewbuildoutbutton);
+		sleep();
+		enterText(txidfiledbox, txid);
+		sleep();
+		enterText(rxfieldboxforbuildout, rxid);
+		sleep();
+		click(searchidbutton);
+		sleep();
+		explicitWaitClickable(rpmuserchecklistbox);
+		scrollintoelement(dateofcompletedlabel);
+		sleep();
+		cleartext(selectdatefieldbox);
+		sleep();
+		enterText(selectdatefieldbox, date);
+		sleep();
+		refreshthepage();
+		sleep();
+		explicitWaitClickable(proceedbuttonforRPM);
+		click(buildoutconfirmationbutton);
+		sleep();
+		explicitWaitClickable(okbutton);
+		refreshthepage();
+	}
 	
 	public void buildoutrequestapprovewithRPMuser()
 	{
@@ -72,8 +100,8 @@ public class Buildoutflowpages extends Basepage
 		elementclickbyjs(rpmchecklistbox);
 		click(rejectforbuildoutbutton);
 		sleep();
-		select(selectrejectreasonforbuildout, "Link no longer needed");
-		sleep();
+		/*select(selectrejectreasonforbuildout, "Test Buildout Reason");
+		sleep();*/
 		click(rejectconfirmationbutton);
 		sleep();
 	}
@@ -91,8 +119,8 @@ public class Buildoutflowpages extends Basepage
 		elementclickbyjs(noccheclistboxforbuildout);
 		click(rejectforbuildoutbutton);
 		sleep();
-		select(selectrejectreasonforbuildout, "Link no longer needed");
-		sleep();
+		/*select(selectrejectreasonforbuildout, "Test Buildout Reason");
+		sleep();*/
 		explicitWaitClickable(rejectconfirmationbutton);
 		sleep();
 	}

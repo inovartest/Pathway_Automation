@@ -1,6 +1,7 @@
 
 package com.Pathway.Users;
 
+import com.Pathway.Base.Basepage;
 import com.Pathway.Webpages.Buildoutflowpages;
 import com.Pathway.Webpages.Cancelationflowpages;
 import com.Pathway.Webpages.Homepage;
@@ -9,7 +10,7 @@ import com.Pathway.Webpages.Renewalflowpages;
 
 import Testdata.DataRetrival;
 
-public class MarketUser 
+public class MarketUser extends Basepage
 {
 	Loginpage login = new Loginpage();
 	Homepage homepage = new Homepage();
@@ -44,6 +45,8 @@ public class MarketUser
 	{
 		String txid = data.getColumn_1(i);
 		String rxid = data.getColumn_2(i);
+		refreshthepage();
+		sleep();
 		homepage.Buildoutbutton();
 		buildout.createnewbuildoutrequestwithMarketuser(txid, rxid, date);
 	}

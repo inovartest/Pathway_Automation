@@ -57,41 +57,7 @@ public class Loginpage extends Basepage
 	}
 	public void ClickYesbutton()
 	{
-		/*try {
-			refreshthepage();
-			refreshthepage();
-			elemntclickbyjs(Yesbutton);	
-			sleep();
-		} catch (StaleElementReferenceException e) {
-			elemntclickbyjs(Yesbutton);	
-			sleep();
-		}*/
 		
-	/*	for (int i = 0; i <= 4; i++) 
-		{
-			try {
-				elemntclickbyjs(Yesbutton);
-				sleep();
-				break;
-			} catch (StaleElementReferenceException e) {
-				elemntclickbyjs(Yesbutton);
-				sleep();
-				System.out.println(e.getMessage());
-			}
-			
-		}*/
-		/* WebDriverWait wait = new WebDriverWait(driver, 20);
-		    WebElement el = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='submit']")));
-		    el.click();*/
-/*	WebElement yesbutton = driver.findElement(By.xpath("//input[@type='submit']"));
-	yesbutton.sendKeys(Keys.ENTER);
-	sleep();*/
-		//enterbuttonclick(Yesbutton);
-		//enter();
-		/*explicitWaitClickable(Yesbutton);
-		sleep();*/
-		
-		sleep();
 		Actions actions = new Actions(driver);
 	    WebElement yes = driver.findElement(By.xpath("//input[@type='submit']"));
 	    yes.isDisplayed();
@@ -103,7 +69,7 @@ public class Loginpage extends Basepage
 	
 	public void loginwithsecondaccount()
 	{
-		explicitWaitClickable(loginsecondaccount);
+		elementclickbyjs(loginsecondaccount);
 		sleep();
 	}
 	public void loginwithThirdaccount()
@@ -118,7 +84,8 @@ public class Loginpage extends Basepage
 	}
 	
 	public void loginwithfifthaccount()
-	{explicitWaitClickable(loginwithfifthaccount);
+	{
+		explicitWaitClickable(loginwithfifthaccount);
 		sleep();
 	}
 	public void loginwitsixthaccount()

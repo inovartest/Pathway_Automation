@@ -1,5 +1,6 @@
 package com.Pathway.Users;
 
+import com.Pathway.Base.Basepage;
 import com.Pathway.Webpages.Buildoutflowpages;
 import com.Pathway.Webpages.Cancelationflowpages;
 import com.Pathway.Webpages.Homepage;
@@ -9,7 +10,7 @@ import com.Pathway.Webpages.RequestViewPage;
 
 import Testdata.DataRetrival;
 
-public class NOCUser
+public class NOCUser extends Basepage
 {
 	Loginpage login = new Loginpage();
 	Homepage homepage = new Homepage();
@@ -55,8 +56,11 @@ public class NOCUser
 	}
 	public void buildourequestwithNOCuser(String statusoftheapplication, int i)
 	{
-		homepage.Buildoutbutton();	
-		view.requestview(i);
+		refreshthepage();
+		sleep();
+		homepage.Buildoutbutton();
+		sleep();
+		view.requestviewforpm(i);
 		if (statusoftheapplication.equals("Approved"))
 		{
 			buildout.buildoutrequestapprovewithNOCuser();

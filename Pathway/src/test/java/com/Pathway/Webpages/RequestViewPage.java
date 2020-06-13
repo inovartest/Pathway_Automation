@@ -43,7 +43,7 @@ public class RequestViewPage extends Basepage
 	private By searchbarr= By.xpath("//input[@id='filter-site']");
 	public void cancelationchecking(int i)
 	{
-		home.dashboardbutton();
+		//home.dashboardbutton();
 		String txid =data.getColumn_1(i);
 		explicitWaitClickable(cancelationrequestdashboard);
 		explicitWaitClickable(inprogressbox);
@@ -56,7 +56,7 @@ public class RequestViewPage extends Basepage
 			}
 	public void renewalchecking(int i)
 	{
-		//home.dashboardbutton();
+		home.dashboardbutton();
 		String txid =data.getColumn_1(i);
 		explicitWaitClickable(Renewalrequestdashboard);
 		explicitWaitClickable(inprogressbox);
@@ -85,19 +85,7 @@ public class RequestViewPage extends Basepage
 	public void requestview(int i)
 	{
 		
-		//String txid = data.getColumn_1(i);
-		
-		/*explicitWaitClickable(txidlbl);*/
-		/*explicitWait(searchbarr);
-		try {
-			enterText(txidsearchbar, txid);
-			enter();
-		} catch (Exception e) {
-			
-		}*/
-		WebElement txbtn =  driver.findElement(By.xpath("//span[contains(text(),'TX Site ID')]"));
-		 /* WebDriverWait txwait = new WebDriverWait(driver, 40);
-        txwait.until(ExpectedConditions.elementToBeClickable(txbtn));*/
+		WebElement txbtn =  driver.findElement(By.xpath("//span[contains(text(),'TX Site ID')]" ));
     
         JavascriptExecutor executor1 = (JavascriptExecutor)driver;
         executor1.executeScript("arguments[0].click();", txbtn);
@@ -106,6 +94,18 @@ public class RequestViewPage extends Basepage
         WebElement element = driver.findElement(By.xpath("//input[@type='text' and @id='filter-site']"));
         element.sendKeys(data.getColumn_1(i));
 		
+	}
+	
+	public void requestviewforpm(int i)
+	{
+		WebElement txbtn =  driver.findElement(By.xpath("(.//*[@class='slick-column-name'])[4]" ));
+	    
+        JavascriptExecutor executor1 = (JavascriptExecutor)driver;
+        executor1.executeScript("arguments[0].click();", txbtn);
+        sleep();
+       
+        WebElement element = driver.findElement(By.xpath("//input[@type='text' and @id='filter-site']"));
+        element.sendKeys(data.getColumn_1(i));
 	}
 	public void requestvieww(int i)
 	{
