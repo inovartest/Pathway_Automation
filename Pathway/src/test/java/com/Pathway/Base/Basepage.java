@@ -145,8 +145,15 @@ public class Basepage {
 		return new WebDriverWait(driver, 70).until(ExpectedConditions.presenceOfElementLocated(locator));
 	}
 
-	public void explicitWaitClickable(By locator) {
+	public void explicitWaitClickable(By locator)
+	{
+		
 		new WebDriverWait(driver, 70).until(ExpectedConditions.elementToBeClickable(locator)).click();
+	}
+	public void elementclickbywait(By locator)
+	{
+		WebElement element = driver.findElement(locator);
+		new WebDriverWait(driver, 50).until(ExpectedConditions.elementToBeClickable(element)).click();
 	}
 
 	public void explicitWaitVisibility(By locator) {

@@ -6,6 +6,8 @@ import com.Pathway.Base.Basepage;
 
 public class Buildoutflowpages extends Basepage
 {
+	private By createnewbutton = By.xpath(".//*[@id='dropdownMenuButton']");
+	private By buildoutdropdownbutton = By.xpath("//a[contains(text(),'Buildout Complete')]");
 	private By createnewbuildoutbutton = By.xpath(".//*[@class='btn-grid approve create-cancel ml-0 mr-0 button-margin']");
 	private By txidfiledbox = By.xpath("//input[@placeholder='Enter TX Site ID']");
 	private By rxfieldboxforbuildout = By.xpath("//input[@placeholder='Enter RX Site ID']");
@@ -27,7 +29,7 @@ public class Buildoutflowpages extends Basepage
 	private By legalsuerchecklistbox = By.xpath("//input[@type='checkbox']");
 	private By sendtofccbuildoutbutton =By.xpath("(.//*[@class='btn-grid approve'])[1]");
 	private By SendoutFCCconfirmatiobuttonforbuildout =By.xpath("(.//*[text()='YES'])[1]");
-	
+	private By yesbuttonforrpm =By.xpath("(.//*[@class='btn-grid approve'])[2]");
 	public void createnewbuildoutrequestwithMarketuser(String txid, String rxid, String date)
 	{
 		explicitWaitClickable(createnewbuildoutbutton);
@@ -41,10 +43,10 @@ public class Buildoutflowpages extends Basepage
 		explicitWaitClickable(marketuserchicklestbox);
 		scrollintoelement(dateofcompletedlabel);
 		sleep();
-		cleartext(selectdatefieldbox);
-		sleep();
-		enterText(selectdatefieldbox, date);
-		sleep();
+//		cleartext(selectdatefieldbox);
+//		sleep();
+//		enterText(selectdatefieldbox, date);
+//		sleep();
 		/*elementscrollintoviewwithjs(proceedbuttonforbuildout);
 		//scrollintoelement(proceedbuttonforbuildout);
 		sleep();
@@ -63,7 +65,10 @@ public class Buildoutflowpages extends Basepage
 		}
 	public void createnewbuildoutrequestwithRPMuser(String txid, String rxid, String date)
 	{
-		explicitWaitClickable(createnewbuildoutbutton);
+		refreshthepage();
+		sleep();
+		explicitWaitClickable(createnewbutton);
+		explicitWaitClickable(buildoutdropdownbutton);
 		sleep();
 		enterText(txidfiledbox, txid);
 		sleep();
@@ -74,15 +79,12 @@ public class Buildoutflowpages extends Basepage
 		explicitWaitClickable(rpmuserchecklistbox);
 		scrollintoelement(dateofcompletedlabel);
 		sleep();
-		cleartext(selectdatefieldbox);
+		/*cleartext(selectdatefieldbox);
 		sleep();
 		enterText(selectdatefieldbox, date);
-		sleep();
-		refreshthepage();
-		sleep();
-		explicitWaitClickable(proceedbuttonforRPM);
-		click(buildoutconfirmationbutton);
-		sleep();
+		sleep();*/
+		elementclickbywait(proceedbuttonforRPM);
+		explicitWaitClickable(yesbuttonforrpm);
 		explicitWaitClickable(okbutton);
 		refreshthepage();
 	}

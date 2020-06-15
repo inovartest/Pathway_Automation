@@ -33,6 +33,15 @@ public class MarketUser extends Basepage
 		homepage.cancelationbutton();
 		cancel.riseCancelationRequestWithMUuser(Txid, Rxid);
 	}
+	 
+	public void partialcancelation(int i)
+	{
+		String Txid = data.getColumn_1(i);
+		String Rxid = data.getColumn_2(i);
+		homepage.cancelationbutton();
+		cancel.partialcancelationrequestmitMUuser(Txid, Rxid);
+	}
+	
 
 	public void renewalrequest(int i)
 	{

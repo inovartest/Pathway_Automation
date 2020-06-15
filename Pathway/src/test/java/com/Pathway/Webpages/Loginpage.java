@@ -34,11 +34,7 @@ public class Loginpage extends Basepage
 			sleep();
 			click(Nextbuttonforsignin);
 			sleep();
-			/*WebElement element = driver.findElement(Passwordfiledbox);
-			WebDriverWait wait = new WebDriverWait(driver, 10);
-			wait.until(ExpectedConditions.presenceOfElementLocated(Passwordfiledbox));*/
-			/*refreshthepage();
-			refreshthepage();*/
+			
 			enterText(Passwordfiledbox, password);
 			sleep();
 			//element.sendKeys(password);

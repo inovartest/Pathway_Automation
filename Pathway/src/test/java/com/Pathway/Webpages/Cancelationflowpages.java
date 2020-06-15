@@ -1,13 +1,14 @@
 package com.Pathway.Webpages;
 
+import org.apache.logging.log4j.util.StringBuilderFormattable;
 import org.openqa.selenium.By;
 
 import com.Pathway.Base.Basepage;
 
-public class Cancelationflowpages extends Basepage
-{
+public class Cancelationflowpages extends Basepage {
 
-	private By createNewcancelationbutton = By.xpath(".//*[@class='btn-grid approve create-cancel ml-0 mr-0 button-margin']");
+	private By createNewcancelationbutton = By
+			.xpath(".//*[@class='btn-grid approve create-cancel ml-0 mr-0 button-margin']");
 	private By partialcancelation = By.xpath("//label[contains(text(),'Partial Cancellation')]");
 	private By fullCancelation = By.xpath("//label[contains(text(),'Full Cancellation')]");
 	private By txidfieldbox = By.xpath("//input[@placeholder='Enter TX Site ID']");
@@ -29,11 +30,39 @@ public class Cancelationflowpages extends Basepage
 	private By Leagluserchecklistbox = By.xpath("//input[@type='checkbox']");
 	private By sendtoFCCbutton = By.xpath("(.//*[@class='btn-grid approve'])[1]");
 	private By legaluserconfirmationbutton = By.xpath("(.//*[text()='YES'])[1]");
-RequestViewPage view = new RequestViewPage();
+	RequestViewPage view = new RequestViewPage();
 
+	public void riseCancelationRequestWithMUuser(String Txid, String Rxid) {
+		click(createNewcancelationbutton);
+		sleep();
+		click(fullCancelation);
+		sleep();
+		enterText(txidfieldbox, Txid);
+		sleep();
+		enterText(rxidfieldbox, Rxid);
+		sleep();
+		click(searchaccountforcancelation);
+		sleep();
+		explicitWaitClickable(CancelationchecklistboxforMU);
+		sleep();
+		scrollintoelement(reasonlbl);
+		sleep();
+		select(selectreasondropdown, "Link no longer needed");
+		sleep();
+		scrollintoelement(proceedbutton);
+		sleep();
+		click(proceedbutton);
+		sleep();
+		click(confirmationbutton);
+		sleep();
+		explicitWaitClickable(requestOKbutton);
+		sleep();
+		refreshthepage();
 
-	public void riseCancelationRequestWithMUuser( String Txid, String Rxid)
-	{   click(createNewcancelationbutton);
+	}
+
+	public void partialcancelationrequestmitMUuser(String Txid, String Rxid) {
+		click(createNewcancelationbutton);
 		sleep();
 		click(partialcancelation);
 		sleep();
@@ -43,42 +72,89 @@ RequestViewPage view = new RequestViewPage();
 		sleep();
 		click(searchaccountforcancelation);
 		sleep();
-		if (driver.findElement(By.xpath("//div[@class='ui-widget-content slick-row even']")).isDisplayed())
-		{
-			explicitWaitClickable(CancelationchecklistboxforMU);
-			sleep();
-			scrollintoelement(reasonlbl);
-			sleep();
-			select(selectreasondropdown, "Link no longer needed");
-			sleep();
-			scrollintoelement(proceedbutton);
-			sleep();
-			click(proceedbutton);
-			sleep();
-			click(confirmationbutton);
-			sleep();
-			explicitWaitClickable(requestOKbutton);
-			sleep();
-			refreshthepage();
-			
-		}
-		else {
-			System.out.println("TXid are used");
-		}
-	
+		explicitWaitClickable(CancelationchecklistboxforMU);
+		sleep();
+		scrollintoelement(reasonlbl);
+		sleep();
+		select(selectreasondropdown, "Link no longer needed");
+		sleep();
+		scrollintoelement(proceedbutton);
+		sleep();
+		click(proceedbutton);
+		sleep();
+		click(confirmationbutton);
+		sleep();
+		explicitWaitClickable(requestOKbutton);
+		sleep();
+		refreshthepage();
+
 	}
 
-	public void approvecancelationwithRPMuser()
-	{
-		
-		//explicitWaitClickable(RPMuserchecklistbox);
+	public void fullcancelationwithRPM(String Txid, String Rxid) {
+		click(createNewcancelationbutton);
+		sleep();
+		click(fullCancelation);
+		sleep();
+		enterText(txidfieldbox, Txid);
+		sleep();
+		enterText(rxidfieldbox, Rxid);
+		sleep();
+		click(searchaccountforcancelation);
+		sleep();
+		explicitWaitClickable(CancelationchecklistboxforMU);
+		sleep();
+		scrollintoelement(reasonlbl);
+		sleep();
+		select(selectreasondropdown, "Link no longer needed");
+		sleep();
+		scrollintoelement(proceedbutton);
+		sleep();
+		click(proceedbutton);
+		sleep();
+		click(confirmationbutton);
+		sleep();
+		explicitWaitClickable(requestOKbutton);
+		sleep();
+		refreshthepage();
+	}
+
+	public void partialcancelationwithRPM(String Txid, String Rxid) {
+		click(createNewcancelationbutton);
+		sleep();
+		click(partialcancelation);
+		sleep();
+		enterText(txidfieldbox, Txid);
+		sleep();
+		enterText(rxidfieldbox, Rxid);
+		sleep();
+		click(searchaccountforcancelation);
+		sleep();
+		explicitWaitClickable(CancelationchecklistboxforMU);
+		sleep();
+		scrollintoelement(reasonlbl);
+		sleep();
+		select(selectreasondropdown, "Link no longer needed");
+		sleep();
+		scrollintoelement(proceedbutton);
+		sleep();
+		click(proceedbutton);
+		sleep();
+		click(confirmationbutton);
+		sleep();
+		explicitWaitClickable(requestOKbutton);
+		sleep();
+		refreshthepage();
+	}
+
+	public void approvecancelationwithRPMuser() {
+
+		// explicitWaitClickable(RPMuserchecklistbox);
 		elementclickbyjs(RPMuserchecklistbox);
 		explicitWaitClickable(approvebutton);
 		explicitWaitClickable(confirmationbutton);
 	}
 
-	public void rejectcancelationwithRPMuser()
-	{
+	public void rejectcancelationwithRPMuser() {
 		click(RPMuserchecklistbox);
 		sleep();
 		click(rejectbutton);
@@ -88,8 +164,8 @@ RequestViewPage view = new RequestViewPage();
 		click(rejectconfirmationbutton);
 		sleep();
 	}
-	public void approvecancelationwithRRMuser()
-	{
+
+	public void approvecancelationwithRRMuser() {
 		elementclickbyjs(RPMuserchecklistbox);
 		click(approvebutton);
 		sleep();
@@ -97,8 +173,7 @@ RequestViewPage view = new RequestViewPage();
 		sleep();
 	}
 
-	public void rejectcancelationwithRRMuser()
-	{
+	public void rejectcancelationwithRRMuser() {
 		click(RRMuserchecklistbox);
 		sleep();
 		click(rejectbutton);
@@ -108,8 +183,8 @@ RequestViewPage view = new RequestViewPage();
 		click(rejectconfirmationbutton);
 		sleep();
 	}
-	public void approvecancelationwithNOCuser()
-	{
+
+	public void approvecancelationwithNOCuser() {
 		elementclickbyjs(RPMuserchecklistbox);
 		click(approvebutton);
 		sleep();
@@ -117,8 +192,7 @@ RequestViewPage view = new RequestViewPage();
 		sleep();
 	}
 
-	public void rejectcancelationwithNOCuser()
-	{
+	public void rejectcancelationwithNOCuser() {
 		click(NOCuserchecklistbox);
 		sleep();
 		click(rejectbutton);
@@ -129,8 +203,7 @@ RequestViewPage view = new RequestViewPage();
 		sleep();
 	}
 
-	public void sendtoFCCwithLegaluser()
-	{
+	public void sendtoFCCwithLegaluser() {
 		elementclickbyjs(RPMuserchecklistbox);
 		click(sendtoFCCbutton);
 		sleep();

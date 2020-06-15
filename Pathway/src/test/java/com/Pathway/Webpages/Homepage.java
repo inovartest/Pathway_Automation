@@ -9,7 +9,7 @@ public class Homepage extends Basepage
 {
 	 private By cancelationbutton = By.xpath("//div[contains(text(),'Cancellations')]");
 	 private By Renewalbutton = By.xpath("(.//*[@class='menu-items'])[3]");
-	 private By Buildooutbuuton = By.xpath("(.//*[@class='menu-items'])[4]");
+	 private By Buildooutbuuton = By.xpath("//div[contains(text(),'Buildout')]");
 	public By accountlbl = By.className("dashboard-list-cards-header");
 		private By dashboardbutton = By.xpath("(.//*[@class='menu-items'])[1]");	
 	 public void cancelationbutton()

@@ -57,7 +57,32 @@ public class Renewalflowpages extends Basepage
 		
 	}
 	
-	public void renewlapprovewithMDuser()
+	public void createnewrenewalrequestwithRPMuser(String txid, String rxid)
+	{
+		explicitWaitClickable(createnewRenewalbutton);
+		sleep();
+		enterText(entertxidfiledforrenewal,txid );
+		sleep();
+		enterText(enterrxidfieldforrenewal, rxid);
+		sleep();
+		click(searchbutton);
+		sleep();
+		explicitWaitClickable(Marketuserchecklistbox);
+		sleep();
+		scrollintoelement(reasonlbl);
+		sleep();
+		select(reasonforrenewal, " Test Child Renewal Reason ");
+		sleep();
+		scrollintoelement(proceedbutton);
+		sleep();
+		click(proceedbutton);
+		sleep();
+		click(renewalconfirmationbutton);
+		sleep();
+		explicitWaitClickable(okbuttonforrenewal);
+		sleep();
+
+	}public void renewlapprovewithMDuser()
 	{
 		elementclickbyjs(MDUchecklistboxforrenewal);
 		click(approverenewalbutton);
@@ -120,8 +145,6 @@ public class Renewalflowpages extends Basepage
 		click(approverenewalbutton);
 		sleep();
 		click(renewalconfirmationbutton);
-		
-		
 		sleep();
 	}
 	

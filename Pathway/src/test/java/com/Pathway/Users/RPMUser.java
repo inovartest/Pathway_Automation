@@ -22,8 +22,6 @@ public class RPMUser extends Basepage
 	RequestViewPage view = new RequestViewPage();
 	public void loginwithRPMUser()
 	{
-		String email = data.getUsername(2);
-		String password = data.getPassword(2);
 		
 		login.doLogin(data.getUsername(2), data.getPassword(2));
 	}
@@ -39,6 +37,28 @@ public class RPMUser extends Basepage
 		else {
 			cancel.rejectcancelationwithRPMuser();
 		}
+	}
+	
+	public void fullcancelationwithRPMuser(int i)
+	{
+		String Txid = data.getColumn_1(i);
+		String Rxid = data.getColumn_2(i);
+		homepage.cancelationbutton();
+		cancel.fullcancelationwithRPM(Txid, Rxid);
+	}
+	public void partialcancelationwithRPMuser(int i)
+	{
+		String Txid = data.getColumn_1(i);
+		String Rxid = data.getColumn_2(i);
+		homepage.cancelationbutton();
+		cancel.partialcancelationwithRPM(Txid, Rxid);
+	}
+	public void renewalrequestwithRPMuser(int i)
+	{
+		String txid = data.getColumn_1(i);
+		String rxid = data.getColumn_2(i);
+		homepage.renewalbutton();
+		renewalpage.createnewrenewalrequestwithRPMuser(txid, rxid);
 	}
 	
 	public void RenewalrequetwithRPMuser(String statsuoftheapplication, int i)
@@ -73,7 +93,6 @@ public class RPMUser extends Basepage
 	{
 		String txid = data.getColumn_1(i);
 		String rxid = data.getColumn_2(i);
-		homepage.Buildoutbutton();
 		buildout.createnewbuildoutrequestwithRPMuser(txid, rxid, date);
 	}
 

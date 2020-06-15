@@ -44,6 +44,8 @@ public class NOCUser extends Basepage
 	}
 	public void renewalrequestwithNOCuser(String statusoftheapplication, int i)
 	{
+		refreshthepage();
+		sleep();
 		homepage.renewalbutton();	
 		view.requestview(i);
 		if (statusoftheapplication.equals("Approved"))
