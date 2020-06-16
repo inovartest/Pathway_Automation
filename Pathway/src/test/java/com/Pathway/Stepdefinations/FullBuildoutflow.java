@@ -53,8 +53,7 @@ public class FullBuildoutflow extends Basepage
 	@Then("^logout  First MarketUser after rise a full BuildOutflow process$")
 	public void logout_First_MarketUser_after_rise_a_full_BuildOutflow_process() {
 		try {
-			refreshthepage();
-			sleep();
+			
 			logout.logoutUser();
 		} catch (NoSuchElementException e) {
 
@@ -165,8 +164,7 @@ public class FullBuildoutflow extends Basepage
 	public void logout_Second_MarketUser_after_rise_a_full_BuildOutflow_process() throws Throwable {
 
 		try {
-			refreshthepage();
-			sleep();
+			
 			logout.logoutUser();
 		} catch (NoSuchElementException e) {
 
@@ -222,8 +220,7 @@ public class FullBuildoutflow extends Basepage
 	public void logout_Third_MarketUser_after_rise_a_full_BuildOutflow_process() throws Throwable {
 
 		try {
-			refreshthepage();
-			sleep();
+			
 			logout.logoutUser();
 		} catch (NoSuchElementException e) {
 
@@ -306,8 +303,7 @@ public class FullBuildoutflow extends Basepage
 	public void logout_fourth_MarketUser_after_rise_a_full_BuildOutflow_process() {
 
 		try {
-			refreshthepage();
-			sleep();
+			
 			logout.logoutUser();
 		} catch (NoSuchElementException e) {
 
@@ -385,8 +381,7 @@ public class FullBuildoutflow extends Basepage
 	@Then("^logout  fifth RPM User after rise a full BuildOutflow process$")
 	public void logout_fifth_RPM_User_after_rise_a_full_BuildOutflow_process() {
 		try {
-			refreshthepage();
-			sleep();
+			
 			logout.logoutUser();
 		} catch (NoSuchElementException e) {
 
@@ -466,8 +461,7 @@ public class FullBuildoutflow extends Basepage
 	@Then("^logout  sixth RPM User after rise a full BuildOutflow process$")
 	public void logout_sixth_RPM_User_after_rise_a_full_BuildOutflow_process() {
 		try {
-			refreshthepage();
-			sleep();
+			
 			logout.logoutUser();
 		} catch (NoSuchElementException e) {
 
@@ -521,8 +515,7 @@ public class FullBuildoutflow extends Basepage
 	@Then("^logout  seventh RPM User after rise a full BuildOutflow process$")
 	public void logout_seventh_RPM_User_after_rise_a_full_BuildOutflow_process() {
 		try {
-			refreshthepage();
-			sleep();
+			
 			logout.logoutUser();
 		} catch (NoSuchElementException e) {
 

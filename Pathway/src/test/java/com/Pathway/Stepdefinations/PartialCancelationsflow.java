@@ -52,7 +52,10 @@ public class PartialCancelationsflow extends Basepage {
 	}
 
 	@Then("^logout first MarketUser after rise a Partial cancelation process$")
-	public void logout_first_MarketUser_after_rise_a_Partial_cancelation_process() {
+	public void logout_first_MarketUser_after_rise_a_Partial_cancelation_process()
+	{
+		refreshthepage();
+		sleep();
 		logout.logoutUser();
 		System.out.println(">>>Logout first market user after rise a partial cancelation request");
 		extentpassreport("Logout first market user after rise a partial cancelation request");
@@ -79,6 +82,7 @@ public class PartialCancelationsflow extends Basepage {
 	@Then("^logout First RPM User after rise a Partial cancelation process$")
 	public void logout_First_RPM_User_after_rise_a_Partial_cancelation_process() {
 
+		
 		logout.logoutUser();
 		extentpassreport("Logout First RPM user");
 		System.out.println(">>>Logout first RPM user after checking the status of the  partial cancelation request");
@@ -95,8 +99,7 @@ public class PartialCancelationsflow extends Basepage {
 	}
 
 	@Then("^check the \"([^\"]*)\" status a Partial Cancelation Request with first NOC User (\\d+)$")
-	public void check_the_status_a_Partial_Cancelation_Request_with_first_NOC_User(String statusoftheapplication,
-			int i) {
+	public void check_the_status_a_Partial_Cancelation_Request_with_first_NOC_User(String statusoftheapplication,int i) {
 		noc.CancelationrequestwithNOCuser(statusoftheapplication, i);
 		System.out.println(">>>Check the status of the cancelation request with First NOC user");
 		extentpassreport("Fisrt NOC user check the " + statusoftheapplication + "of the application");
@@ -154,7 +157,10 @@ public class PartialCancelationsflow extends Basepage {
 	}
 
 	@Then("^logout second MarketUser after rise a Partial cancelation process$")
-	public void logout_second_MarketUser_after_rise_a_Partial_cancelation_process() {
+	public void logout_second_MarketUser_after_rise_a_Partial_cancelation_process()
+	{
+		refreshthepage();
+		sleep();
 		logout.logoutUser();
 		System.out.println(">>>Logout second market user after rise a partial cancelation request");
 		extentpassreport("Logout second market user after rise a partial cancelation request");
@@ -171,8 +177,7 @@ public class PartialCancelationsflow extends Basepage {
 	}
 
 	@Then("^check the \"([^\"]*)\" status a Partial Cancelation Request with second RPM User (\\d+)$")
-	public void check_the_status_a_Partial_Cancelation_Request_with_second_RPM_User(String statusoftheapplication,
-			int i) {
+	public void check_the_status_a_Partial_Cancelation_Request_with_second_RPM_User(String statusoftheapplication,	int i) {
 		rpm.CancelationrequestwithRPMuser(statusoftheapplication, i);
 		System.out.println(">>>Check the status of the partial cancelation request with second RPM user");
 		extentpassreport("second RPM user check the " + statusoftheapplication + "of the application");
@@ -206,7 +211,10 @@ public class PartialCancelationsflow extends Basepage {
 	}
 
 	@Then("^logout Third MarketUser after rise a Partial cancelation process$")
-	public void logout_Third_MarketUser_after_rise_a_Partial_cancelation_process() {
+	public void logout_Third_MarketUser_after_rise_a_Partial_cancelation_process() 
+	{
+		refreshthepage();
+		sleep();
 		logout.logoutUser();
 		System.out.println(">>>Logout third market user after rise a partial cancelation request");
 		extentpassreport("Logout third market user after rise a partial cancelation request");
@@ -221,8 +229,7 @@ public class PartialCancelationsflow extends Basepage {
 	}
 
 	@Then("^check the \"([^\"]*)\" status a Partial Cancelation Request with Third RPM User (\\d+)$")
-	public void check_the_status_a_Partial_Cancelation_Request_with_Third_RPM_User(String statusoftheapplication,
-			int i) {
+	public void check_the_status_a_Partial_Cancelation_Request_with_Third_RPM_User(String statusoftheapplication,int i) {
 		rpm.CancelationrequestwithRPMuser(statusoftheapplication, i);
 		System.out.println(">>>Check the status of the partial cancelation request with third RPM user");
 		extentpassreport("third RPM user check the " + statusoftheapplication + "of the application");
@@ -247,8 +254,7 @@ public class PartialCancelationsflow extends Basepage {
 	}
 
 	@Then("^check the \"([^\"]*)\" status a Partial Cancelation Request with Third NOC User (\\d+)$")
-	public void check_the_status_a_Partial_Cancelation_Request_with_Third_NOC_User(String statusoftheapplication,
-			int i) {
+	public void check_the_status_a_Partial_Cancelation_Request_with_Third_NOC_User(String statusoftheapplication,int i) {
 		noc.CancelationrequestwithNOCuser(statusoftheapplication, i);
 		System.out.println(">>>Check the status of the cancelation request with third NOC user");
 		extentpassreport("third NOC user check the " + statusoftheapplication + "of the application");
@@ -256,7 +262,10 @@ public class PartialCancelationsflow extends Basepage {
 	}
 
 	@Then("^logout Third NOC User after rise a Partial cancelation process$")
-	public void logout_Third_NOC_User_after_rise_a_Partial_cancelation_process() {
+	public void logout_Third_NOC_User_after_rise_a_Partial_cancelation_process()
+	{
+		refreshthepage();
+		sleep();
 		logout.logoutUser();
 		extentpassreport("Logout third NOC user");
 		System.out.println(">>>Logout third NOC user after checking the status of the  partial cancelation request");
@@ -282,7 +291,10 @@ public class PartialCancelationsflow extends Basepage {
 	}
 
 	@Then("^logout fourth MarketUser after rise a Partial cancelation process$")
-	public void logout_fourth_MarketUser_after_rise_a_Partial_cancelation_process() {
+	public void logout_fourth_MarketUser_after_rise_a_Partial_cancelation_process()
+	{
+		refreshthepage();
+		sleep();
 		logout.logoutUser();
 		System.out.println(">>>Logout fourth market user after rise a partial cancelation request");
 		extentpassreport("Logout fourth market user after rise a partial cancelation request");
@@ -299,8 +311,7 @@ public class PartialCancelationsflow extends Basepage {
 	}
 
 	@Then("^check the \"([^\"]*)\" status a Partial Cancelation Request with fourth RPM User (\\d+)$")
-	public void check_the_status_a_Partial_Cancelation_Request_with_fourth_RPM_User(String statusoftheapplication,
-			int i) {
+	public void check_the_status_a_Partial_Cancelation_Request_with_fourth_RPM_User(String statusoftheapplication,int i) {
 		rpm.CancelationrequestwithRPMuser(statusoftheapplication, i);
 		System.out.println(">>>Check the status of the partial cancelation request with fourth RPM user");
 		extentpassreport("fourth RPM user check the " + statusoftheapplication + "of the application");
@@ -323,8 +334,10 @@ public class PartialCancelationsflow extends Basepage {
 	}
 
 	@Then("^check the \"([^\"]*)\" status a  Partial Cancelation Request with fourth NOC User (\\d+)$")
-	public void check_the_status_a_Partial_Cancelation_Request_with_fourth_NOC_User(String statusoftheapplication,
-			int i) {
+	public void check_the_status_a_Partial_Cancelation_Request_with_fourth_NOC_User(String statusoftheapplication,int i) 
+	{
+		refreshthepage();
+		sleep();
 		noc.CancelationrequestwithNOCuser(statusoftheapplication, i);
 		System.out.println(">>>Check the status of the partial cancelation request with fourth NOC user");
 		extentpassreport("fourth NOC user check the " + statusoftheapplication + "of the application");
@@ -332,7 +345,10 @@ public class PartialCancelationsflow extends Basepage {
 	}
 
 	@Then("^logout fourth NOC User after rise a Partial cancelation process$")
-	public void logout_fourth_NOC_User_after_rise_a_Partial_cancelation_process() {
+	public void logout_fourth_NOC_User_after_rise_a_Partial_cancelation_process() 
+	{
+		refreshthepage();
+		sleep();
 		logout.logoutUser();
 		extentpassreport("Logout fourth NOC user");
 		System.out.println(">>>Logout fourth NOC user after checking the status of the  partial cancelation request");
@@ -352,6 +368,8 @@ public class PartialCancelationsflow extends Basepage {
 	@Then("^Rise a Partial Cancelation Request with  fifth RPM User (\\d+)$")
 	public void rise_a_Partial_Cancelation_Request_with_fifth_RPM_User(int i) 
 	{
+		refreshthepage();
+		sleep();
 		rpm.partialcancelationwithRPMuser(i);
 		System.out.println(">>>fifth RPM user rise a request succesfully");
 		extentpassreport(" fifth RPM user rise a cancelation request succesfully");
@@ -433,6 +451,8 @@ public class PartialCancelationsflow extends Basepage {
 	@Then("^Rise a Partial Cancelation Request with  sixth RPM User (\\d+)$")
 	public void rise_a_Partial_Cancelation_Request_with_sixth_RPM_User(int i) 
 	{
+		refreshthepage();
+		sleep();
 		rpm.partialcancelationwithRPMuser(i);
 		System.out.println(">>>sixth RPM user rise a partial cancelation request succesfully");
 		extentpassreport(" sixth RPM user rise a partial cancelation request succesfully");
@@ -468,6 +488,8 @@ public class PartialCancelationsflow extends Basepage {
 	@Then("^logout  sixth NOC User after rise a Partial Cancelation process$")
 	public void logout_sixth_NOC_User_after_rise_a_Partial_Cancelation_process() 
 	{
+		refreshthepage();
+		sleep();
 		logout.logoutUser();
 		extentpassreport("Logout sixth NOC user");
 		System.out.println(">>>Logout sixth NOC user after checking the status of the  partial cancelation request");
@@ -486,6 +508,8 @@ public class PartialCancelationsflow extends Basepage {
 	@Then("^Rise a Partial Cancelation Request with  Seventh RPM User (\\d+)$")
 	public void rise_a_Partial_Cancelation_Request_with_Seventh_RPM_User(int i) 
 	{
+		refreshthepage();
+		sleep();
 		rpm.partialcancelationwithRPMuser(i);
 		System.out.println(">>>seventh RPM user rise a request succesfully");
 		extentpassreport(" seventh RPM user rise a partial cancelation request succesfully");

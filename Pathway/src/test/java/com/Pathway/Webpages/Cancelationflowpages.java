@@ -155,8 +155,7 @@ public class Cancelationflowpages extends Basepage {
 	}
 
 	public void rejectcancelationwithRPMuser() {
-		click(RPMuserchecklistbox);
-		sleep();
+		elementclickbyjs(RPMuserchecklistbox);
 		click(rejectbutton);
 		sleep();
 		select(selectreasonforrejection, "Link no longer needed");
@@ -193,8 +192,7 @@ public class Cancelationflowpages extends Basepage {
 	}
 
 	public void rejectcancelationwithNOCuser() {
-		click(NOCuserchecklistbox);
-		sleep();
+		elementclickbyjs(RPMuserchecklistbox);
 		click(rejectbutton);
 		sleep();
 		select(selectreasonforrejection, "Link no longer needed");

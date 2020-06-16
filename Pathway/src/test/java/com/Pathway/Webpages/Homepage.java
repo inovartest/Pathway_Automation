@@ -14,20 +14,26 @@ public class Homepage extends Basepage
 		private By dashboardbutton = By.xpath("(.//*[@class='menu-items'])[1]");	
 	 public void cancelationbutton()
 	 {
+		 refreshthepage();
+		 sleep();
 		explicitWaitClickable(cancelationbutton);
 		 sleep();
 	 }
 	 public void dashboardbutton()
 	 {
-explicitWaitClickable(dashboardbutton);
-sleep();
+         explicitWaitClickable(dashboardbutton);
+             sleep();
 	 }public void renewalbutton()
 	 {
+		 refreshthepage();
+		 sleep();
 		 explicitWaitClickable(Renewalbutton);
 		 sleep();
 	 }
 	 public void Buildoutbutton()
 	 {
+		 refreshthepage();
+         sleep();
 		explicitWaitClickable(Buildooutbuuton);
 		sleep();
 		 

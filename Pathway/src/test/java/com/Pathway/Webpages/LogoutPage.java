@@ -14,6 +14,8 @@ public class LogoutPage extends Basepage
 	
 	public void logoutUser()
 	{
+		refreshthepage();
+		sleep();
 		try {
 			
 			mouseoverelement(accounticon);

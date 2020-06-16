@@ -31,6 +31,8 @@ public class NOCUser extends Basepage
 	
 	public void CancelationrequestwithNOCuser(String statusoftheapplication, int i)
 	{
+		refreshthepage();
+		sleep();
 		homepage.cancelationbutton();
 		view.requestview(i);
 		

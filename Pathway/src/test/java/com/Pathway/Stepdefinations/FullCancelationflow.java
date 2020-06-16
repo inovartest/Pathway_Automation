@@ -52,8 +52,7 @@ public class FullCancelationflow extends Basepage {
 	@Then("^logout first MarketUser after rise a full cancelation process$")
 	public void logout_first_MarketUser_after_rise_a_full_cancelation_process()
 	{
-		refreshthepage();
-		sleep();
+		
 		logout.logoutUser();
 		System.out.println(">>>Logout first market user after rise a full cancelation request");
 		extentpassreport("Logout first market user after rise a full cancelation request");
@@ -149,8 +148,7 @@ public class FullCancelationflow extends Basepage {
 	@Then("^logout second MarketUser after rise a full cancelation process$")
 	public void logout_second_MarketUser_after_rise_a_full_cancelation_process() 
 	{
-		refreshthepage();
-		sleep();
+		
 		logout.logoutUser();
 		System.out.println(">>>Logout second market user after rise a full cancelation request");
 		extentpassreport("Logout second market user after rise a full cancelation request");
@@ -199,8 +197,7 @@ public class FullCancelationflow extends Basepage {
 	@Then("^logout Third MarketUser after rise a full cancelation process$")
 	public void logout_Third_MarketUser_after_rise_a_full_cancelation_process()
 	{
-		refreshthepage();
-		sleep();
+		
 		logout.logoutUser();
 		System.out.println(">>>Logout Third market user after rise a full cancelation request");
 		extentpassreport("Logout Third market user after rise a full cancelation request");
@@ -465,6 +462,8 @@ public class FullCancelationflow extends Basepage {
 	@Then("^Rise a full Cancelation Request with  Seventh RPM User (\\d+)$")
 	public void rise_a_full_Cancelation_Request_with_Seventh_RPM_User(int i) {
 
+		refreshthepage();
+		sleep();
 		rpm.fullcancelationwithRPMuser(i);
 		System.out.println(">>>seventh RPM user rise a request succesfully");
 		extentpassreport(" seventh RPM user rise a cancelation request succesfully");

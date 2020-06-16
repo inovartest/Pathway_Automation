@@ -56,7 +56,7 @@ public class Basepage {
 	public void refreshthepage()
 	{
 		driver.navigate().refresh();
-		System.out.println("page has refreshed");
+		
 	}
 	public void extentreporinit(String descrption, String flowname)
 	{
@@ -211,7 +211,7 @@ public class Basepage {
 	}
 	public void sleep() {
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			logger.error(e.getMessage());
 		}
