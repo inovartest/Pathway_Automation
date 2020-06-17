@@ -151,6 +151,8 @@ public void second_NOC_User_login_with_valid_creditinals_for_renewal_process()
 @Then("^check the \"([^\"]*)\" status a Renewal Request with  second NOC User (\\d+)$")
 public void check_the_status_a_Renewal_Request_with_second_NOC_User(String statusoftheapplication, int i) 
 {
+	refreshthepage();
+	sleep();
 	noc.renewalrequestwithNOCuser(statusoftheapplication, i);
 	System.out.println(">>>Check the status of the renewal request with second NOC user");
 	extentpassreport("second NOC user check the " + statusoftheapplication + "of the application");
@@ -206,6 +208,8 @@ public void third_NOC_User_login_with_valid_creditinals_for_renewal_process()
 @Then("^check the \"([^\"]*)\" status a Renewal Request with  third NOC User (\\d+)$")
 public void check_the_status_a_Renewal_Request_with_third_NOC_User(String statusoftheapplication, int i) 
 {
+	refreshthepage();
+	sleep();
 	noc.renewalrequestwithNOCuser(statusoftheapplication, i);
 	System.out.println(">>>Check the status of the renewal request with third NOC user");
 	extentpassreport("third NOC user check the " + statusoftheapplication + "of the application");

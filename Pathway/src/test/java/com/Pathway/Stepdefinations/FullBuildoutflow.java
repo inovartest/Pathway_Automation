@@ -139,6 +139,8 @@ public class FullBuildoutflow extends Basepage
 	@Then("^logout First Legal User after rise a full BuildOutflow process$")
 	public void logout_First_Legal_User_after_rise_a_full_BuildOutflow_process() throws Throwable {
 
+		refreshthepage();
+		sleep();
 		logout.logoutUser();
 		extentpassreport("Logout Legal user1 after check the build out request");
 		System.out.println("Logout Leagal user1 after check the build out request");
@@ -496,7 +498,9 @@ public class FullBuildoutflow extends Basepage
 	}
 
 	@When("^seventh RPM User login with valid creditinals for full BuildOutflow process$")
-	public void seventh_RPM_User_login_with_valid_creditinals_for_full_BuildOutflow_process() {
+	public void seventh_RPM_User_login_with_valid_creditinals_for_full_BuildOutflow_process()
+	{
+		
 		login.loginwithfifthaccount();
 		rpm.loginwithRPMUser();
 		extentpassreport("RPM user7 login with valid credtinals for Rise a build out request");
@@ -505,7 +509,10 @@ public class FullBuildoutflow extends Basepage
 	}
 
 	@Then("^Rise a BuildOutflow Request with  Seventh RPM User (\\d+) with \"([^\"]*)\"$")
-	public void rise_a_BuildOutflow_Request_with_Seventh_RPM_User_with(int i, String date) throws Throwable {
+	public void rise_a_BuildOutflow_Request_with_Seventh_RPM_User_with(int i, String date) throws Throwable
+	{
+		refreshthepage();
+		sleep();
 		rpm.createbuildoutrequestwithrpm(i, date);
 		extentpassreport("Rise a request with RPM user7 for build out request");
 		System.out.println("Rise a request with RPM user7 for build out request");

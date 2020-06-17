@@ -43,6 +43,8 @@ public class RPMUser extends Basepage
 	{
 		String Txid = data.getColumn_1(i);
 		String Rxid = data.getColumn_2(i);
+		refreshthepage();
+		sleep();
 		homepage.cancelationbutton();
 		cancel.fullcancelationwithRPM(Txid, Rxid);
 	}
@@ -50,6 +52,8 @@ public class RPMUser extends Basepage
 	{
 		String Txid = data.getColumn_1(i);
 		String Rxid = data.getColumn_2(i);
+		refreshthepage();
+		sleep();
 		homepage.cancelationbutton();
 		cancel.partialcancelationwithRPM(Txid, Rxid);
 	}
@@ -57,6 +61,8 @@ public class RPMUser extends Basepage
 	{
 		String txid = data.getColumn_1(i);
 		String rxid = data.getColumn_2(i);
+		refreshthepage();
+		sleep();
 		homepage.renewalbutton();
 		renewalpage.createnewrenewalrequestwithRPMuser(txid, rxid);
 	}

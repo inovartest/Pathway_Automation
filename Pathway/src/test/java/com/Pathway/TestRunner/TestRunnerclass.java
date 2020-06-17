@@ -12,12 +12,12 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-features={"src\\test\\java\\com\\Pathway\\Base\\Featurefiles\\FullRenewalflow.feature","src\\test\\java\\com\\Pathway\\Base\\Featurefiles\\FullCancelationFlow.feature","src\\test\\java\\com\\Pathway\\Base\\Featurefiles\\FullBuildOutflow.feature","src\\test\\java\\com\\Pathway\\Base\\Featurefiles\\Partialcancelationflow.feature"},glue= "com.Pathway.Stepdefinations",
+features={"src\\test\\java\\com\\Pathway\\Base\\Featurefiles\\FullRenewalflow.feature","src\\test\\java\\com\\Pathway\\Base\\Featurefiles\\FullCancelationFlow.feature","src\\test\\java\\com\\Pathway\\Base\\Featurefiles\\PartialCancelation.feature","src\\test\\java\\com\\Pathway\\Base\\Featurefiles\\FullBuildOutflow.feature"},glue= "com.Pathway.Stepdefinations",
 monochrome = true,dryRun = false,strict = true,
 format = {
         "pretty",
         "html:test-output",
-       "json:target/Pathwayreports/Cucumber.json","com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/secondbuildreport.html",
+       "json:target/Pathwayreports/Cucumber.json","com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/thirdbuildreport.html",
          "junit:junit_xml/cucumber.xml"})
 public class TestRunnerclass  extends AbstractTestNGCucumberTests{
 	@AfterClass

@@ -30,14 +30,17 @@ public class LegalUser extends Basepage
 	
 	public void CancelationrequestwithLeagluser( int i)
 	{
+		refreshthepage();
+		sleep();
 		homepage.cancelationbutton();
 		view.requestview(i);
-		
 		cancel.sendtoFCCwithLegaluser();
 	}
 	
 	public void renewalrequestsendtoFCCwithLegalsuer(int i)
 	{
+		refreshthepage();
+		sleep();
 		homepage.renewalbutton();
 		view.requestview(i);
 		renewalpage.sendtoFCCforrenewalconnection();
@@ -45,6 +48,7 @@ public class LegalUser extends Basepage
 	public void sendtoFCCbuildrequestwithLegalsuer(int i)
 	{
 		refreshthepage();
+		sleep();
 		homepage.Buildoutbutton();
 		sleep();
 		view.requestviewforpm(i);
