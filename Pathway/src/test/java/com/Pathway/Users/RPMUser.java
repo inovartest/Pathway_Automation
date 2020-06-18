@@ -28,6 +28,8 @@ public class RPMUser extends Basepage
 	
 	public void CancelationrequestwithRPMuser(String statusoftheapplication, int i)
 	{
+		refreshthepage();
+		sleep();
 		homepage.cancelationbutton();
 		view.requestview(i);
 		if (statusoftheapplication.equals("Approved"))
@@ -70,7 +72,6 @@ public class RPMUser extends Basepage
 	public void RenewalrequetwithRPMuser(String statsuoftheapplication, int i)
 	{
 		homepage.renewalbutton();
-	
 		view.requestview(i);
 		if (statsuoftheapplication.equals("Approved"))
 		{
@@ -84,6 +85,7 @@ public class RPMUser extends Basepage
 	public void buildoutrequestwithRPMuser(String statusoftheapplication, int i)
 	{
 		refreshthepage();
+		sleep();
 		homepage.Buildoutbutton();
 		sleep();
 		view.requestviewforpm(i);

@@ -150,7 +150,9 @@ public class Cancelationflowpages extends Basepage {
 
 		// explicitWaitClickable(RPMuserchecklistbox);
 		elementclickbyjs(RPMuserchecklistbox);
+		sleep();
 		explicitWaitClickable(approvebutton);
+		sleep();
 		explicitWaitClickable(confirmationbutton);
 	}
 

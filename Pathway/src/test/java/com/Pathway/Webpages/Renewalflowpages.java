@@ -20,7 +20,7 @@ public class Renewalflowpages extends Basepage
 	private By MDUchecklistboxforrenewal = By.xpath("//input[@type='checkbox']");
 	private By approverenewalbutton = By.xpath("(.//*[@class='btn-grid approve'])[1]");
 	private By rejectrenewalbutton = By.xpath("(.//*[@class='btn-grid reject'])[1]");
-	private By rejectreasonforrenewal = By.xpath("//select[@class='w-100 ng-untouched ng-pristine ng-valid']");
+	private By rejectreasonforrenewal = By.xpath(".//*[@class='w-100 ng-pristine ng-valid ng-touched']");
 	private By rejectconfirmationbutton = By.xpath("(.//*[text()='YES'])[2]");
 	private By mochekclistforrenewal = By.xpath("//input[@type='checkbox']");
 	private By RPMchecklistforrenewal = By.xpath("//input[@type='checkbox']");
@@ -153,8 +153,8 @@ public class Renewalflowpages extends Basepage
 		elementclickbyjs(NOCchecklistforrenewal);
       click(rejectrenewalbutton);
       sleep();
-      select(rejectreasonforrenewal, "link no longer needed");
-      sleep();
+     /* select(rejectreasonforrenewal, " Test Child Renewal Reason ");
+      sleep();*/
       click(rejectconfirmationbutton);
       sleep();
 }

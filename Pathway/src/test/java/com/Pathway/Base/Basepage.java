@@ -82,9 +82,20 @@ public class Basepage {
 
 	public void click(By locator) {
 		WebElement element = driver.findElement(locator);
-		element.click();
-		
+		 WebDriverWait wait = new WebDriverWait(driver, 20);
+         wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+          JavascriptExecutor js = (JavascriptExecutor) driver;
+         js.executeScript("arguments[0].click();", element);		
 	}
+	public void jstext(By locator, String text)
+	{
+		WebElement element = driver.findElement(locator);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		  js.executeScript("arguments[0].value="+ text, element);
+	}
+	
 	public void cleartext(By locator)
 	{
 		WebElement element = driver.findElement(locator);
@@ -211,7 +222,7 @@ public class Basepage {
 	}
 	public void sleep() {
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 		} catch (InterruptedException e) {
 			logger.error(e.getMessage());
 		}
