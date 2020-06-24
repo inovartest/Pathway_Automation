@@ -20,21 +20,34 @@ public class FullRenewalprocess extends Basepage
 	NOCUser noc = new NOCUser();
 	LegalUser legal = new LegalUser();
 	
-	@Given("^enter url application into \"([^\"]*)\" for Renewal flow$")
-	public void enter_url_application_into_for_Partial_cancelation_flow(String browsername) {
+	@Given("^enter url application into \"([^\"]*)\" for Renewal flow with \"([^\"]*)\"$")
+	public void enter_url_application_into_for_Partial_cancelation_flow(String browsername, String environment) {
 		extentreporinit("Renewal flow", "renewal flow report");
 		init(browsername);
-		geturl(Pathwayconstants.URL_OF_THE_APPLICATION);
+		if (environment.equals("local")) {
+			geturl(Pathwayconstants.URL_OF_THE_APPLICATION);
+		}
+		else {
+			geturl(Pathwayconstants.STAGE_URL_OF_THE_APPLICATION);
+		}
+	
 		System.out.println(">>>Launch application succesfully ");
 		extentpassreport("Application launch succesfully");
 
 	}
 
-@When("^first RPM User login with valid creditinals for Renewal process$")
-public void first_RPM_User_login_with_valid_creditinals_for_Renewal_process() 
+@When("^first RPM User login with valid creditinals for Renewal process with \"([^\"]*)\"$")
+public void first_RPM_User_login_with_valid_creditinals_for_Renewal_process(String environment) 
 {
-    rpm.loginwithRPMUser();
-    login.ClickYesbutton();
+	if (environment.equals("local")) {
+		rpm.loginwithRPMUser();
+	    login.ClickYesbutton();
+	}
+	else {
+		login.stagelogin();
+		login.poplogin();
+	}
+    
     extentpassreport("RPM user1 login with succesfully valid credtinals");
     System.out.println("RPM user1 login with succesfully valid credtinals");
 }
@@ -219,6 +232,8 @@ public void check_the_status_a_Renewal_Request_with_third_NOC_User(String status
 @Then("^logout  third NOC User after rise a Renewal process$")
 public void logout_third_NOC_User_after_rise_a_Renewal_process() 
 {
+	refreshthepage();
+	sleep();
 	logout.logoutUser();
 	   extentpassreport("logout RPM user 3  after rise a renewal request");
 	   System.out.println("logout RPM user 3  after rise a renewal request");

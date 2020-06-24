@@ -1,11 +1,14 @@
 package com.Pathway.Base;
 
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.math3.ode.sampling.StepNormalizerMode;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -18,6 +21,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
 
 import com.Pathway.DriverManager.DriverManager;
 import com.relevantcodes.extentreports.DisplayOrder;
@@ -32,6 +37,7 @@ public class Basepage {
 	final static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Basepage.class);
 	public static ExtentTest test;
     public static ExtentReports reports;
+    
 	
 
 	public void geturl(String url)
@@ -39,6 +45,81 @@ public class Basepage {
 		driver.get(url);
 		driver.manage().window().maximize();
 	}
+	public void getstageurl()
+	{
+		/*
+			//String URL = "https://" + "Jaleel.Khan23@T-Mobile.com" + ":" + "Dev@2020" + "@" + "sts2.t-mobile.com";
+			Alert alert = driver.switchTo().alert();
+			alert.sendKeys("Jaleel.Khan23@T-Mobile.com");
+			alert.sendKeys("Dev@2020");
+			alert.accept();
+			driver.switchTo().alert();
+			try {
+				Robot r = new Robot();
+				r.keyPress(KeyEvent.VK_ENTER);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}*/
+			
+
+		//Selenium-WebDriver Java Code for entering Username & Password as below:
+
+		/*driver.switchTo().alert().sendKeys("Jaleel.Khan23@T-Mobile.com" + Keys.TAB + "Dev@2020");
+		driver.switchTo().alert().accept();*/
+		/*WebDriverWait wait = new WebDriverWait(driver, 30);
+		Alert alertpopup = wait.until(ExpectedConditions.alertIsPresent());
+		alertpopup.sendKeys("Jaleel.Khan23@T-Mobile.com");
+		alertpopup.sendKeys("Dev@2020");
+		alertpopup.accept();*/
+		/*String username ="Jaleel.Khan23@T-Mobile.com";
+		String password ="Dev@2020";
+		String url ="sts3.t-mobile.com";
+		String URL ="https://"+username+":"+password+"@"+url;
+driver.get(URL);*/
+		/*try {
+			Robot r = new Robot();
+			Screen sc = new Screen();
+			sc.setAutoWaitTimeout(20);
+			Pattern username = new Pattern("C:\\\\Users\\\\saiku\\\\OneDrive\\\\Pictures\\\\Screenshots\\\\Screenshot (121).png");
+			sc.type(username, "Jaleel.Khan23@T-Mobile.com");
+			r.keyPress(KeyEvent.VK_TAB);
+			sleep();
+			Screen sc1 = new Screen();
+			sc.setAutoWaitTimeout(20);
+			Pattern password = new Pattern("‪C:\\\\Users\\\\saiku\\\\OneDrive\\\\Pictures\\\\Screenshots\\\\Screenshot (127).png");
+			sc1.type(password, "Dev@2020");
+			Screen sc3 = new Screen();
+			Pattern siginbutton = new Pattern("C:\\Users\\saiku\\OneDrive\\Pictures\\Screenshots\\Screenshot (124).png");
+			sc.setAutoWaitTimeout(20);
+			sc3.click(siginbutton);
+			sleep();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}*/
+try {
+			Thread.sleep(10000);
+			Screen screen = new Screen();
+			screen.type("‪E:\\repositeryforgit\\Pathway_Automation\\Pathway\\Screenshot (132).png", "Jaleel.Khan23@T-Mobile.com");
+			Thread.sleep(2000);
+			Robot r = new Robot();
+			r.keyPress(KeyEvent.VK_TAB);
+
+			Thread.sleep(2000);
+			Screen screen1 = new Screen();
+			screen1.type("‪E:\\repositeryforgit\\Pathway_Automation\\Pathway\\Screenshot (132).png", "Dev@2020");
+
+			Thread.sleep(3000);
+
+			Screen screen2 = new Screen();
+			Thread.sleep(3000);
+			screen2.click("C:\\Users\\saiku\\Downloads\\SignInButton.png");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+	}
+	
 	public void getscreenshot(String stepname, String path)
 	{
 		try {
@@ -79,6 +160,7 @@ public class Basepage {
 		test.log(LogStatus.FAIL, stepname+"failed");
 	}
 
+	
 
 	public void click(By locator) {
 		WebElement element = driver.findElement(locator);

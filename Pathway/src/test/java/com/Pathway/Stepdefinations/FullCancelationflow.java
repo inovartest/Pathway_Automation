@@ -23,19 +23,33 @@ public class FullCancelationflow extends Basepage {
 	RequestViewPage view = new RequestViewPage();
 	LogoutPage logout = new LogoutPage();
 
-	@Given("^enter url application into \"([^\"]*)\" for full cancelation flow$")
-	public void enter_url_application_into_for_full_cancelation_flow(String browsername) {
+	@Given("^enter url application into \"([^\"]*)\" for full cancelation flow with \"([^\"])\" $")
+	public void enter_url_application_into_for_full_cancelation_flow(String browsername, String environment) {
 		extentreporinit("FullCancelation", "FullCancleation flow report");
 		init(browsername);
-		geturl(Pathwayconstants.URL_OF_THE_APPLICATION);
+		if (environment.equals("local")) 
+		{
+			geturl(Pathwayconstants.URL_OF_THE_APPLICATION);
+		}
+		else {
+			geturl(Pathwayconstants.STAGE_URL_OF_THE_APPLICATION);
+		}
+	
 		System.out.println(">>>Launch application succesfully ");
 		extentpassreport("Application launch succesfully");
 	}
 
-	@When("^first Market User login with valid creditinals for full cancelation process$")
-	public void first_Market_User_login_with_valid_creditinals_for_full_cancelation_process() {
-		market.loginwithMarketUser();
-		login.ClickYesbutton();
+	@When("^first Market User login with valid creditinals for full cancelation process with \"([^\"])\"$")
+	public void first_Market_User_login_with_valid_creditinals_for_full_cancelation_process(String environment) {
+		if (environment.equals("local")) {
+			market.loginwithMarketUser();
+			login.ClickYesbutton();
+		}
+		else {
+			login.stagelogin();
+			login.poplogin();
+		}
+		
 		System.out.println("Market user1 login succesfully");
 		extentpassreport("Market user1 login succesfully");
 
@@ -498,6 +512,7 @@ public class FullCancelationflow extends Basepage {
 	public void logout_seventh_NOC_User_after_rise_a_full_Cancelation_process() {
 		logout.logoutUser();
 		extentpassreport("Logout seventh NOC user");
+		extentreportssave();
 		System.out.println(">>>Logout seventh NOC user after checking the status of the  full cancelation request");
 	}
 

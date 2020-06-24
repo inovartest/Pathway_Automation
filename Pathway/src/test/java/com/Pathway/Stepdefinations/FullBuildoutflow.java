@@ -26,19 +26,37 @@ public class FullBuildoutflow extends Basepage
 	RequestViewPage view = new RequestViewPage();
 	LogoutPage logout = new LogoutPage();
 
-	@Given("^enter url application into \"([^\"]*)\" for full BuildOutflow flow$")
-	public void IntiationApplication(String browsername) {
+	@Given("^enter url application into \"([^\"]*)\" for full BuildOutflow flow with \"([^\"]*)\"$")
+	public void IntiationApplication(String browsername, String environment) {
 		extentreporinit("FullBuildoutflow", "FullBuildoutflow");
 		init(browsername);
-		geturl(Pathwayconstants.URL_OF_THE_APPLICATION);
+		if (environment.equals("local")) {
+			geturl(Pathwayconstants.URL_OF_THE_APPLICATION);
+		}
+		else {
+			geturl(Pathwayconstants.STAGE_URL_OF_THE_APPLICATION);
+		}
+		
 		extentpassreport("Launch Application succesfully into the browser");
 		System.out.println("Launch Application succesfully into the browser");
 	}
 
-	@When("^First Market User login with valid creditinals for full BuildOutflow process$")
-	public void first_Market_User_login_with_valid_creditinals_for_full_BuildOutflow_process() {
-		market.loginwithMarketUser();
-		login.ClickYesbutton();
+	@When("^First Market User login with valid creditinals for full BuildOutflow process with \"([^\"]*)\"$")
+	public void first_Market_User_login_with_valid_creditinals_for_full_BuildOutflow_process(String environment)
+	{
+		if (environment.equals("local")) {
+			market.loginwithMarketUser();
+			login.ClickYesbutton();
+		}
+		else {
+			login.stagelogin();
+			login.poplogin();
+			}
+		
+		//login.poplogin();
+		//login.poppass();
+		//getstageurl();
+				
 		System.out.println("Market user1 login succesfully");
 		extentpassreport("Market user1 login succesfully");
 	}

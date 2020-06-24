@@ -22,9 +22,15 @@ private static WebDriver driver;
 	 * 
 	 *         This method return ChromeDriver object
 	 */
-	public static  WebDriver getChromeDriver() {
+	public static  WebDriver getChromeDriver() 
+	{
 		//WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+				options.addArguments("--allow-insecure-localhost");
+				DesiredCapabilities caps = DesiredCapabilities.chrome();
+				caps.setCapability(ChromeOptions.CAPABILITY, options);
+				caps.setCapability("acceptInsecureCerts", true);
+		driver = new ChromeDriver(caps);
 		
 		VerifyBrowserOS();
 		return driver;
@@ -63,7 +69,9 @@ private static WebDriver driver;
 	 */
 	public static WebDriver getFirefoxDriver() {
 		//WebDriverManager.firefoxdriver().setup();
-		driver = new FirefoxDriver();
+DesiredCapabilities cap = DesiredCapabilities.firefox();
+cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+		driver = new FirefoxDriver(cap);
 		VerifyBrowserOS();
 		return driver;
 	}

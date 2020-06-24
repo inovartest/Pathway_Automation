@@ -23,20 +23,34 @@ public class PartialCancelationsflow extends Basepage {
 	RequestViewPage view = new RequestViewPage();
 	LogoutPage logout = new LogoutPage();
 
-	@Given("^enter url application into \"([^\"]*)\" for Partial cancelation flow$")
-	public void enter_url_application_into_for_Partial_cancelation_flow(String browsername) {
+	@Given("^enter url application into \"([^\"]*)\" for Partial cancelation flow with \"([^\")\"$")
+	public void enter_url_application_into_for_Partial_cancelation_flow(String browsername, String environment) {
 		extentreporinit("PartialCancelation", "PartialCancleation flow report");
 		init(browsername);
-		geturl(Pathwayconstants.URL_OF_THE_APPLICATION);
+		if (environment.equals("local")) {
+			geturl(Pathwayconstants.URL_OF_THE_APPLICATION);
+		}
+		else {
+			geturl(Pathwayconstants.STAGE_URL_OF_THE_APPLICATION);
+		}
+		
 		System.out.println(">>>Launch application succesfully ");
 		extentpassreport("Application launch succesfully");
 
 	}
 
-	@When("^first Market User login with valid creditinals for Partial cancelation process$")
-	public void first_Market_User_login_with_valid_creditinals_for_Partial_cancelation_process() {
-		market.loginwithMarketUser();
-		login.ClickYesbutton();
+	@When("^first Market User login with valid creditinals for Partial cancelation process with \"([^\"])\"$")
+	public void first_Market_User_login_with_valid_creditinals_for_Partial_cancelation_process(String environment) 
+	{
+		if (environment.equals("local")) {
+			market.loginwithMarketUser();
+			login.ClickYesbutton();
+		}
+		else {
+			login.stagelogin();
+			login.popuplogin();
+		}
+		
 		System.out.println("Market user1 login succesfully");
 		extentpassreport("Market user1 login succesfully");
 	}
@@ -547,6 +561,7 @@ public class PartialCancelationsflow extends Basepage {
 		logout.logoutUser();
 		extentpassreport("Logout seventh NOC user");
 		System.out.println(">>>Logout seventh NOC user after checking the status of the  partial cancelation request");
+		extentreportssave();
 	   
 	}
 
