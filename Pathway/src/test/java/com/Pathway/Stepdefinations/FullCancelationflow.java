@@ -47,7 +47,7 @@ public class FullCancelationflow extends Basepage {
 		}
 		else {
 			login.stagelogin();
-			login.poplogin();
+			login.popuplogin();
 		}
 		
 		System.out.println("Market user1 login succesfully");

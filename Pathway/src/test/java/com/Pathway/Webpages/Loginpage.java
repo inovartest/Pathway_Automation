@@ -56,112 +56,7 @@ public class Loginpage extends Basepage
 		explicitWaitClickable(signinbutton);
 		//sleep();
 	}
-	public void poplogin()
-	{
-		try {
-			Robot r = new Robot();
-			/*r.keyPress(KeyEvent.VK_CAPS_LOCK);
-			Thread.sleep(2000);
-			r.keyPress(KeyEvent.VK_CAPS_LOCK);
-			Thread.sleep(2000);*/
-			/*r.keyPress(KeyEvent.VK_CONTROL);
-			sleep();*/
-			r.keyPress(KeyEvent.VK_SHIFT);
-			sleep();
-			r.keyPress(KeyEvent.VK_J); 
-			sleep();
-			r.keyRelease(KeyEvent.VK_SHIFT);
-			sleep();
-         	r.keyPress(KeyEvent.VK_A);
-         	r.keyPress(KeyEvent.VK_L);
-         	r.keyPress(KeyEvent.VK_E);
-         	Thread.sleep(2000);
-         	r.keyPress(KeyEvent.VK_E);
-         	r.keyPress(KeyEvent.VK_L);
-         	r.keyPress(KeyEvent.VK_DECIMAL);
-         	r.keyPress(KeyEvent.VK_SHIFT);
-			sleep();
-         	r.keyPress(KeyEvent.VK_K);
-         	r.keyRelease(KeyEvent.VK_SHIFT);
-			sleep();
-         	r.keyPress(KeyEvent.VK_H);
-         	r.keyPress(KeyEvent.VK_A);
-         	r.keyPress(KeyEvent.VK_N);
-         	r.keyPress(KeyEvent.VK_SHIFT);
-         	r.keyPress(KeyEvent.VK_2);
-         	Thread.sleep(2000);
-         	r.keyRelease(KeyEvent.VK_SHIFT);
-			r.keyPress(KeyEvent.VK_SHIFT);
-			sleep();
-			r.keyPress(KeyEvent.VK_T);
-			r.keyRelease(KeyEvent.VK_SHIFT);
-			sleep();
-			r.keyPress(KeyEvent.VK_MINUS);
-			r.keyPress(KeyEvent.VK_SHIFT);
-			sleep();
-			r.keyPress(KeyEvent.VK_M);
-			r.keyRelease(KeyEvent.VK_SHIFT);
-			sleep();
-			r.keyPress(KeyEvent.VK_O);
-			r.keyPress(KeyEvent.VK_B);
-			r.keyPress(KeyEvent.VK_I);
-			r.keyPress(KeyEvent.VK_L);
-			r.keyPress(KeyEvent.VK_E);
-			r.keyPress(KeyEvent.VK_DECIMAL);
-			r.keyPress(KeyEvent.VK_C);
-			r.keyPress(KeyEvent.VK_O);
-			r.keyPress(KeyEvent.VK_M);
-			
 	
-			
-		} catch (AWTException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-	public void poppass()
-	{ 
-		try {
-			Robot r = new Robot();
-			
-			r.keyPress(KeyEvent.VK_TAB);
-			sleep();
-			r.keyPress(KeyEvent.VK_SHIFT);
-			sleep();
-			r.keyPress(KeyEvent.VK_D);
-			r.keyRelease(KeyEvent.VK_SHIFT);
-			sleep();
-			r.keyPress(KeyEvent.VK_E);
-			r.keyPress(KeyEvent.VK_V);
-			r.keyPress(KeyEvent.VK_SHIFT);
-	     	r.keyPress(KeyEvent.VK_2);
-	     	Thread.sleep(2000);
-	     	r.keyRelease(KeyEvent.VK_SHIFT);
-	     	sleep();
-	     	r.keyPress(KeyEvent.VK_2);
-	     	r.keyPress(KeyEvent.VK_0);
-	     	r.keyPress(KeyEvent.VK_2);
-	     	sleep();
-	     	r.keyPress(KeyEvent.VK_0);
-	     	sleep();
-	     	
-	     	Thread.sleep(3000);
-
-			Screen screen2 = new Screen();
-			Thread.sleep(3000);
-			screen2.click("C:\\Users\\saiku\\Downloads\\SignInButton.png");
-	  /*   	r.keyPress(KeyEvent.VK_TAB);
-	     	sleep();
-	     	enter();*/
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-     	
-	}
 	public void stagelogin()
 	{
 		enterText(Emailfieldbox, "Jaleel.Khan23@T-Mobile.com");
@@ -203,9 +98,7 @@ try {
 	            r.keyPress(KeyEvent.VK_H);
 	            r.keyPress(KeyEvent.VK_A);
 	            r.keyPress(KeyEvent.VK_N);
-	            /*Thread.sleep(2000);
-	            r.keyPress(KeyEvent.VK_SHIFT);
-	            */
+	            sleep();
 	            r.keyPress(KeyEvent.VK_2);
 	            r.keyPress(KeyEvent.VK_3);
 	            Thread.sleep(2000);
@@ -249,8 +142,7 @@ try {
 	             Thread.sleep(2000);
 	            r.keyRelease(KeyEvent.VK_SHIFT);
 	            Thread.sleep(2000);
-	            r.keyPress(KeyEvent.VK_2);
-	                   
+	            r.keyPress(KeyEvent.VK_2);         
 	            r.keyPress(KeyEvent.VK_0);
 	            r.keyPress(KeyEvent.VK_2);
 	            r.keyPress(KeyEvent.VK_0);

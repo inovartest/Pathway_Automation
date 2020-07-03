@@ -45,7 +45,7 @@ public void first_RPM_User_login_with_valid_creditinals_for_Renewal_process(Stri
 	}
 	else {
 		login.stagelogin();
-		login.poplogin();
+		login.popuplogin();
 	}
     
     extentpassreport("RPM user1 login with succesfully valid credtinals");

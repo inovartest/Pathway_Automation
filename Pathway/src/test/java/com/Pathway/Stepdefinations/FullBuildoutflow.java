@@ -50,12 +50,8 @@ public class FullBuildoutflow extends Basepage
 		}
 		else {
 			login.stagelogin();
-			login.poplogin();
+			login.popuplogin();
 			}
-		
-		//login.poplogin();
-		//login.poppass();
-		//getstageurl();
 				
 		System.out.println("Market user1 login succesfully");
 		extentpassreport("Market user1 login succesfully");

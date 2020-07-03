@@ -5,7 +5,7 @@ import com.Pathway.Webpages.Loginpage;
 import com.Pathway.Webpages.Renewalflowpages;
 import com.Pathway.Webpages.RequestViewPage;
 
-import Testdata.DataRetrival;
+import com.Pathway.Testdata.*;
 
 public class MOuser 
 {

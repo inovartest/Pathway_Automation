@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.Pathway.Base.Basepage;
 
-import Testdata.DataRetrival;
+import com.Pathway.Testdata.*;
 
 
 public class RequestViewPage extends Basepage

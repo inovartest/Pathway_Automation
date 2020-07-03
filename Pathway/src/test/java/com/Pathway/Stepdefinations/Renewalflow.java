@@ -9,7 +9,6 @@ import com.Pathway.Users.NOCUser;
 import com.Pathway.Users.RPMUser;
 import com.Pathway.Webpages.Loginpage;
 import com.Pathway.Webpages.LogoutPage;
-import com.Pathway.Webpages.MDuser;
 import com.Pathway.Webpages.RequestViewPage;
 
 import cucumber.api.java.en.Given;
